@@ -6,7 +6,6 @@ import {
   Mail,
   Phone,
   Flame,
-  Link as LinkIcon,
   Twitter,
 } from "lucide-react";
 
@@ -35,7 +34,6 @@ export const socials = [
   { label: "Instagram", href: "https://www.instagram.com/_shubhamneupane_/", icon: Instagram },
   { label: "Facebook", href: "https://www.facebook.com/shubham.neupane.3979/", icon: Facebook },
   { label: "Tinder", href: "https://tinder.com/@shubhamneupane", icon: Flame },
-  { label: "Linktree", href: "https://linktr.ee/shubhamneupane", icon: LinkIcon },
   { label: "Phone", href: "tel:+9779868767171", icon: Phone },
   { label: "Email", href: "mailto:shubhamneupane07@gmail.com", icon: Mail },
 ];

@@ -26,7 +26,7 @@ export default function Contact() {
         <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-12">
           <Reveal className="md:col-span-7">
             <div
-              className="grid grid-cols-2 sm:grid-cols-3"
+              className="grid grid-cols-2 sm:grid-cols-4"
               style={{ borderTop: "2px solid var(--color-on-ink)", borderLeft: "2px solid var(--color-on-ink)" }}
             >
               {socials.map((s) => (

@@ -18,16 +18,16 @@ Paper + ink monochrome base, two spot accents (one warm/loud for paper, one neon
 
 | Token | Value | Role |
 |---|---|---|
-| `--paper` | `#ECE6D6` | Warm newsprint background |
-| `--paper-2` | `#E2DAC5` | Recessed panel / alternate row |
+| `--paper` | `#FFFFFF` | White background (primary) |
+| `--paper-2` | `#F4F4F1` | Recessed panel / alternate row |
 | `--ink` | `#0C0B09` | Near-black text, rules, dark blocks |
 | `--ink-2` | `#2A2822` | Secondary text on paper |
-| `--ink-3` | `#6B675C` | Muted meta text |
+| `--ink-3` | `#6B6B66` | Muted meta text |
 | `--flare` | `#FF3B1E` | **Primary accent** — vermilion, works on paper & ink |
 | `--acid` | `#CBFF1D` | **Neon accent** — acid lime, for dark blocks & highlight marks |
 | `--rule` | `rgba(12,11,9,.18)` | Hairline dividers on paper |
 | `--rule-strong` | `#0C0B09` | Heavy structural borders |
-| `--on-ink` | `#ECE6D6` | Paper-colored text on ink blocks |
+| `--on-ink` | `#F5F5F2` | Near-white text on ink blocks |
 
 **Rules of use:** one accent per block. `--flare` is the default interactive/emphasis color on paper. `--acid` only appears on `--ink` blocks or as a highlighter mark behind ink text. Never place `--acid` text directly on `--paper` (low contrast).
 
