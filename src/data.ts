@@ -5,6 +5,7 @@ import {
   Facebook,
   Mail,
   Phone,
+  Flame,
   Link as LinkIcon,
   Twitter,
 } from "lucide-react";
@@ -33,6 +34,7 @@ export const socials = [
   { label: "X", href: "https://x.com/Access_7s", icon: Twitter },
   { label: "Instagram", href: "https://www.instagram.com/_shubhamneupane_/", icon: Instagram },
   { label: "Facebook", href: "https://www.facebook.com/shubham.neupane.3979/", icon: Facebook },
+  { label: "Tinder", href: "https://tinder.com/@shubhamneupane", icon: Flame },
   { label: "Linktree", href: "https://linktr.ee/shubhamneupane", icon: LinkIcon },
   { label: "Phone", href: "tel:+9779868767171", icon: Phone },
   { label: "Email", href: "mailto:shubhamneupane07@gmail.com", icon: Mail },
@@ -85,48 +87,57 @@ export type Project = {
 export const projects: Project[] = [
   {
     index: "01",
-    title: "Herald College App",
-    role: "Product Owner",
-    year: "2023–24",
+    title: "Aurora IDP",
+    role: "Co-Founder · Platform",
+    year: "2026",
     description:
-      "Built for Herald College under the Development Platform. Started as a Research & Development core member and was promoted to Product Owner, managing a team of 60+ learners with the team leads and shipping the app all the way to a live Play Store release.",
-    tags: ["Product Ownership", "Team of 60+", "Play Store", "Scrum"],
+      "The internal developer platform behind every Aurora Studios product. One command — `aurora deploy` — ships a project to Cloudflare Workers with a D1 database, an R2 bucket, Better Auth and rate limiting wired in, across defined resource tiers. It's how a small studio ships a dozen apps without a dozen setups.",
+    tags: ["Cloudflare Workers", "D1", "R2", "Platform / DX"],
   },
   {
     index: "02",
-    title: "Codynn — EdTech Platform",
-    role: "Project Manager @ Void Nepal",
-    year: "2023–24",
+    title: "Vitra Bahira ERP",
+    role: "Co-Founder & Product Lead",
+    year: "2026",
     description:
-      "A website and mobile app to learn programming through interactive courses, videos, questions and challenges. Led a 30-person cross-functional team across 8 sprints, wrote the SRS, and delivered 20+ features — improving team velocity from 20 to 32 story points.",
-    tags: ["Project Management", "Team of 30", "EdTech", "SRS"],
+      "An all-in-one finance + inventory SaaS for Nepali small businesses — retail, wholesale and small factories. Real double-entry accounting under the hood, plus khata (credit), stock, Nepal-native VAT and the Bikram Sambat calendar. Piloted on three real businesses from day one.",
+    tags: ["React", "Hono", "Double-Entry", "Cloudflare"],
   },
   {
     index: "03",
+    title: "GMC Job Portal",
+    role: "Product & Engineering",
+    year: "2026",
+    description:
+      "A verified student ↔ employer hiring platform for Ghodaghodi Multiple Campus — document verification, applications and admin review. Built as Next.js 16 on Cloudflare Workers via Aurora IDP, with Better Auth and Drizzle.",
+    tags: ["Next.js 16", "Cloudflare", "D1", "Better Auth"],
+  },
+  {
+    index: "04",
+    title: "Masto Coffee",
+    role: "Product & Engineering",
+    year: "2026",
+    description:
+      "Storefront and admin CMS for the Masto Artisan Roastery, migrated from a Supabase app to Cloudflare Workers. A React / Vite / shadcn UI served as static assets, with a Worker API backed by D1 and R2.",
+    tags: ["React", "Cloudflare Workers", "D1", "R2"],
+  },
+  {
+    index: "05",
     title: "Codynn Compiler",
-    role: "Project Manager",
+    role: "Project Manager @ Void Nepal",
     year: "2023–24",
     description:
       "A cloud-based online compiler supporting 5+ programming languages. Gathered requirements and researched market need, then worked with backend engineers on a Docker containerization strategy for secure code execution and a CI/CD pipeline for deploys.",
     tags: ["Cloud Compiler", "Docker", "5+ Languages", "CI/CD"],
   },
   {
-    index: "04",
+    index: "06",
     title: "Intra College Calendar",
     role: "Product Owner & Research Head",
     year: "2023",
     description:
-      "An internal calendar and events system built for the college under the Development Platform. Acted as Product Owner and Research Head — scoping requirements and building the system with a tight closed team of five.",
+      "An internal calendar and events system built for Herald College under the Development Platform. Acted as Product Owner and Research Head — scoping requirements and building the system with a tight closed team of five.",
     tags: ["Product Ownership", "Research", "Team of 5"],
-  },
-  {
-    index: "05",
-    title: "Vitra Bahira ERP",
-    role: "Founder & Builder",
-    year: "2025–",
-    description:
-      "A multi-tenant finance + inventory ERP for small businesses in Nepal — retail POS first, then wholesale and factory workflows. Piloted on three real businesses from day one, on the Cloudflare edge stack.",
-    tags: ["React", "Hono", "Cloudflare", "Postgres"],
   },
 ];
 
@@ -140,7 +151,7 @@ export type TimelineItem = {
 
 export const experience: TimelineItem[] = [
   {
-    period: "2024 — Present",
+    period: "Jun 2026 — Present",
     org: "Aurora Studios",
     role: "Co-Founder",
     place: "Kathmandu · Product Studio",
