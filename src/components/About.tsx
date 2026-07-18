@@ -8,22 +8,17 @@ export default function About() {
 
       <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
         <div className="space-y-5 md:col-span-7">
+          <Reveal>
+            <p className="text-xl leading-relaxed text-ink md:text-2xl">
+              <span className="mark-acid font-medium">
+                Where engineering meets the business.
+              </span>
+            </p>
+          </Reveal>
           {profile.about.map((p, i) => (
-            <Reveal key={i} delay={i * 0.08}>
+            <Reveal key={i} delay={0.06 + i * 0.06}>
               <p className="text-xl leading-relaxed text-ink-2 md:text-2xl">
-                {i === 0 ? (
-                  <>
-                    <span className="mark-acid font-medium text-ink">
-                      Product strategy meets execution.
-                    </span>{" "}
-                    {p.replace(
-                      "I'm an Artificial Intelligence undergraduate (First Class Honors) who spends most of my time where product strategy meets execution. ",
-                      "",
-                    )}
-                  </>
-                ) : (
-                  p
-                )}
+                {p}
               </p>
             </Reveal>
           ))}
