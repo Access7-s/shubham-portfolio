@@ -68,11 +68,8 @@ export default function Preloader() {
           </div>
 
           {/* center: signature signing itself as the loader fills */}
-          <div className="flex flex-1 flex-col items-center justify-center gap-5 py-6">
-            <div
-              className="relative"
-              style={{ width: "min(74vw, 340px)" }}
-            >
+          <div className="flex flex-1 flex-col items-center justify-center py-6">
+            <div style={{ width: "min(74vw, 340px)" }}>
               <img
                 src="/img/signature.png"
                 alt="Shubham Neupane signature"
@@ -80,18 +77,6 @@ export default function Preloader() {
                 style={{ clipPath: `inset(0 ${100 - count}% 0 0)` }}
                 draggable={false}
               />
-              {/* pen nib sweeping the reveal edge */}
-              <div
-                className="absolute top-[8%] bottom-[8%] w-[2px] bg-flare"
-                style={{
-                  left: `${count}%`,
-                  opacity: count > 1 && count < 100 ? 0.9 : 0,
-                }}
-                aria-hidden
-              />
-            </div>
-            <div className="meta text-on-ink/40">
-              {count < 100 ? "{ signing… }" : "{ signed }"}
             </div>
           </div>
 
