@@ -2,17 +2,19 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import Ticker from "./components/Ticker";
 import About from "./components/About";
-import Skills from "./components/Skills";
+import Capabilities from "./components/Capabilities";
 import Projects from "./components/Projects";
-import Journey from "./components/Journey";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
 import Contact from "./components/Contact";
-import CursorGlow from "./components/CursorGlow";
 import ScrollProgress from "./components/ScrollProgress";
 
 export default function App() {
   useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.12 });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const lenis = new Lenis({ lerp: 0.1 });
     let raf = 0;
     const loop = (time: number) => {
       lenis.raf(time);
@@ -26,16 +28,17 @@ export default function App() {
   }, []);
 
   return (
-    <div className="noise relative min-h-screen">
-      <CursorGlow />
+    <div className="grain relative min-h-screen">
       <ScrollProgress />
       <Nav />
       <main>
         <Hero />
+        <Ticker />
         <About />
-        <Skills />
+        <Capabilities />
         <Projects />
-        <Journey />
+        <Experience />
+        <Skills />
         <Contact />
       </main>
     </div>

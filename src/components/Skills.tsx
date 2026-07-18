@@ -1,20 +1,19 @@
 import { skills } from "../data";
-import { SectionHeading } from "./Section";
 
 function Row({ items, reverse }: { items: string[]; reverse?: boolean }) {
   const doubled = [...items, ...items];
   return (
-    <div className="relative flex overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+    <div className="flex overflow-hidden">
       <div
-        className="animate-marquee flex shrink-0 gap-3"
+        className="animate-marquee flex w-max shrink-0 items-center"
         style={reverse ? { animationDirection: "reverse" } : undefined}
       >
         {doubled.map((s, i) => (
-          <span
-            key={`${s}-${i}`}
-            className="glass whitespace-nowrap rounded-full px-5 py-2 font-mono text-sm text-white/80"
-          >
-            {s}
+          <span key={`${s}-${i}`} className="flex items-center whitespace-nowrap">
+            <span className="font-display px-6 py-3 text-3xl md:text-5xl">
+              {s}
+            </span>
+            <span className="flare text-xl">/</span>
           </span>
         ))}
       </div>
@@ -25,11 +24,19 @@ function Row({ items, reverse }: { items: string[]; reverse?: boolean }) {
 export default function Skills() {
   const half = Math.ceil(skills.length / 2);
   return (
-    <section id="skills" className="py-28">
-      <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading kicker="02 — Skills" title="Tools of the trade" />
+    <section
+      className="py-14 md:py-20"
+      style={{ borderBlock: "2px solid var(--color-ink)" }}
+    >
+      <div className="shell">
+        <div className="meta mb-8 flex items-center justify-between text-ink-3">
+          <span>
+            <span className="flare">(05)</span> Capabilities Index
+          </span>
+          <span aria-hidden>✳ ✳ ✳</span>
+        </div>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-1">
         <Row items={skills.slice(0, half)} />
         <Row items={skills.slice(half)} reverse />
       </div>

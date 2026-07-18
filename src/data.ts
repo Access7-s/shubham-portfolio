@@ -10,146 +10,194 @@ import {
 
 export const profile = {
   name: "Shubham Neupane",
-  alias: "Paradox 🐉",
-  roles: [
-    "Full-Stack Developer",
-    "AI Undergraduate",
-    "Builder @ Aurora Studios",
-    "Problem Solver",
-  ],
+  headline: ["Artificial Intelligence", "Product Owner", "Project Manager"],
   location: "Kathmandu, Nepal",
+  coords: "27.7172° N, 85.3240° E",
   email: "shubhamneuane07@gmail.com",
+  photo: "/img/shubham.png",
+  connections: "500+",
+  followers: "1,662",
+  lede: "I lead product and ship it too. Artificial Intelligence undergraduate, product owner, and project manager who has run teams of 20–30 building software people actually use.",
   about: [
-    "I'm an Artificial Intelligence undergraduate at Herald College Kathmandu who would rather ship real products than collect certificates. Under Aurora Studios, I design and build software that actual businesses in Nepal run on every day — from e-commerce to ERP.",
-    "My happy place is the full stack: React on the front, TypeScript everywhere, and serverless infrastructure on Cloudflare's edge. I care about software that is fast, boring to operate, and genuinely useful.",
+    "I'm an Artificial Intelligence undergraduate (First Class Honors) who spends most of my time where product strategy meets execution. As a Product Owner and Project Manager, I've defined roadmaps, run Scrum, and led cross-functional teams of 20 to 30 people to ship real applications — from a college's mobile platform to a coding-education product.",
+    "I care about the whole arc: understanding what users need, breaking it into something a team can build, and keeping everyone moving until it ships. AI is the lens; product is the craft; getting things shipped is the point.",
   ],
 };
 
 export const socials = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shubham-neupane-9a937b217/", icon: Linkedin },
   { label: "GitHub", href: "https://github.com/Access7-s", icon: Github },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/shubham-neupane-9a937b217/",
-    icon: Linkedin,
-  },
-  {
-    label: "X / Twitter",
-    href: "https://x.com/Access_7s",
-    icon: Twitter,
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/_shubhamneupane_/",
-    icon: Instagram,
-  },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/shubham.neupane.3979/",
-    icon: Facebook,
-  },
-  {
-    label: "Linktree",
-    href: "https://linktr.ee/shubhamneupane",
-    icon: LinkIcon,
-  },
+  { label: "X", href: "https://x.com/Access_7s", icon: Twitter },
+  { label: "Instagram", href: "https://www.instagram.com/_shubhamneupane_/", icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/shubham.neupane.3979/", icon: Facebook },
+  { label: "Linktree", href: "https://linktr.ee/shubhamneupane", icon: LinkIcon },
   { label: "Email", href: "mailto:shubhamneuane07@gmail.com", icon: Mail },
 ];
 
-export const skills = [
-  "TypeScript",
-  "JavaScript",
-  "Python",
-  "React",
-  "Next.js",
-  "React Native",
-  "Node.js",
-  "Hono",
-  "Cloudflare Workers",
-  "Cloudflare D1",
-  "PostgreSQL",
-  "Tailwind CSS",
-  "AI / ML",
-  "Jupyter",
-  "Git & GitHub",
-  "REST APIs",
-  "Serverless",
-  "SQL",
+export const stats = [
+  { value: "30", label: "People led on a single team" },
+  { value: "3", label: "Products shipped as owner / PM" },
+  { value: "1st", label: "Class Honors — BSc AI" },
+  { value: "2+", label: "Years running Scrum teams" },
+];
+
+export const capabilities = [
+  {
+    no: "01",
+    title: "Product Ownership",
+    body: "Defining requirements, roadmaps, and priorities so what gets built is what users actually need.",
+    tags: ["Roadmapping", "User Stories", "Prioritization", "Stakeholders"],
+  },
+  {
+    no: "02",
+    title: "Project Management",
+    body: "Running Scrum end to end — stand-ups, sprint reviews, retrospectives — and keeping teams of 20–30 on track.",
+    tags: ["Scrum", "Agile", "Sprint Planning", "Delivery"],
+  },
+  {
+    no: "03",
+    title: "Artificial Intelligence",
+    body: "An AI undergraduate foundation in machine learning and creative problem solving, applied to real products.",
+    tags: ["Machine Learning", "Problem Solving", "Research"],
+  },
+  {
+    no: "04",
+    title: "Build & Design",
+    body: "Hands-on across the stack and in Figma — enough to speak fluently with engineers and designers, and to ship myself.",
+    tags: ["React", "TypeScript", "Python", "Figma", "Git"],
+  },
 ];
 
 export type Project = {
+  index: string;
   title: string;
-  tagline: string;
+  role: string;
+  year: string;
   description: string;
-  tech: string[];
-  status: "Live" | "In Development" | "Shipped";
-  accent: string;
+  tags: string[];
+  href?: string;
 };
 
 export const projects: Project[] = [
   {
+    index: "01",
+    title: "Herald College Mobile App",
+    role: "Product Manager",
+    year: "2023–24",
+    description:
+      "Owned the product for Herald College Kathmandu's mobile platform. Defined requirements and roadmap, ran Scrum, and led a team of 20 core members and team leads. Shipped alongside an Intra-College Calendar and the Herald Journey initiative.",
+    tags: ["Product Ownership", "Scrum", "Team of 20", "Roadmap"],
+  },
+  {
+    index: "02",
+    title: "Codynn — Coding Platform",
+    role: "Project Manager @ Void Nepal",
+    year: "2023–24",
+    description:
+      "Managed a 30-person team building Codynn, a coding-education platform: web application, an online compiler, a challenges section, and a suite of mobile apps for Python, JavaScript, Golang, Java and QBasic.",
+    tags: ["Project Management", "Team of 30", "Compiler", "EdTech"],
+    href: "https://github.com/Access7-s/codynn",
+  },
+  {
+    index: "03",
     title: "Vitra Bahira ERP",
-    tagline: "Finance + inventory SaaS for Nepali SMBs",
+    role: "Founder & Builder",
+    year: "2025–",
     description:
-      "A multi-tenant ERP built for how small businesses in Nepal actually operate — retail POS first, then wholesale and factory workflows. Piloted on three real businesses from day one.",
-    tech: ["React", "Hono", "Cloudflare Workers", "Neon Postgres"],
-    status: "In Development",
-    accent: "from-violet-500/30 to-fuchsia-500/10",
+      "A multi-tenant finance + inventory ERP for small businesses in Nepal — retail POS first, then wholesale and factory workflows. Piloted on three real businesses from day one, on the Cloudflare edge stack.",
+    tags: ["React", "Hono", "Cloudflare", "Postgres"],
   },
   {
+    index: "04",
     title: "GMC Job Portal",
-    tagline: "Verified student ↔ employer hiring platform",
+    role: "Full-Stack Developer",
+    year: "2024",
     description:
-      "A job portal for Ghodaghodi Multiple Campus connecting verified students with vetted employers — document verification, applications, and admin review flows end to end.",
-    tech: ["Next.js", "Cloudflare", "D1", "R2", "Better Auth"],
-    status: "Shipped",
-    accent: "from-cyan-500/30 to-blue-500/10",
+      "A verified student ↔ employer hiring platform for Ghodaghodi Multiple Campus — document verification, applications, and admin review, end to end on Cloudflare with Next.js.",
+    tags: ["Next.js", "Cloudflare", "D1", "Better Auth"],
   },
   {
+    index: "05",
     title: "Masto Coffee",
-    tagline: "E-commerce for a specialty coffee roastery",
+    role: "Full-Stack Developer",
+    year: "2024",
     description:
-      "Full storefront and order pipeline for a coffee roastery — product catalog, cart, checkout, and transactional email — running entirely on Cloudflare's edge.",
-    tech: ["Cloudflare Workers", "D1", "R2", "React", "Resend"],
-    status: "Shipped",
-    accent: "from-amber-500/25 to-orange-500/10",
-  },
-  {
-    title: "GatherWay",
-    tagline: "Mobile app + backend, TypeScript end to end",
-    description:
-      "A mobile-first product with a dedicated REST backend — designed, built, and iterated as a complete system rather than a demo.",
-    tech: ["React Native", "TypeScript", "Node.js"],
-    status: "Shipped",
-    accent: "from-emerald-500/25 to-teal-500/10",
-  },
-  {
-    title: "One-Bite Foods",
-    tagline: "Restaurant dine-in booking system",
-    description:
-      "Dine-in booking and staff management platform for a Kathmandu restaurant, built with a team during the Collaborative Development module.",
-    tech: ["JavaScript", "Node.js", "MySQL"],
-    status: "Shipped",
-    accent: "from-pink-500/25 to-rose-500/10",
+      "A complete e-commerce storefront and order pipeline for a specialty coffee roastery — catalog, cart, checkout, and transactional email — running entirely on Cloudflare's edge.",
+    tags: ["Cloudflare Workers", "D1", "R2", "React"],
   },
 ];
 
-export const journey = [
+export type TimelineItem = {
+  period: string;
+  org: string;
+  role: string;
+  place: string;
+  body: string;
+};
+
+export const experience: TimelineItem[] = [
   {
-    period: "Now",
-    title: "Aurora Studios",
-    subtitle: "Founder & Developer",
-    body: "Building and running production software for real businesses in Nepal — ERP, e-commerce, and platforms, mostly on the Cloudflare edge stack.",
+    period: "Oct 2023 — Oct 2024",
+    org: "Development Platform, HCK",
+    role: "Product Manager",
+    place: "Kathmandu · Hybrid",
+    body: "Defined product requirements and roadmap for the Herald College application, implemented Scrum with stand-ups, sprint reviews and retrospectives, and led a team of 20 core members — acting as the bridge between departments.",
   },
   {
-    period: "Ongoing",
-    title: "Herald College Kathmandu",
-    subtitle: "BSc (Hons) — Artificial Intelligence",
-    body: "Studying AI & machine learning while applying it to real projects. Interested in the intersection of intelligent systems and product engineering.",
+    period: "Jun 2023 — Dec 2023",
+    org: "Development Platform, HCK",
+    role: "Research & Analysis — Core",
+    place: "Kathmandu · Hybrid",
+    body: "Project planning and product research, working in Figma to shape early requirements and analysis for the platform's roadmap.",
   },
   {
-    period: "Earlier",
-    title: "The foundation years",
-    subtitle: "Web tech, embedded systems & Python",
-    body: "From weekly web workshops to embedded systems programming — the reps that made shipping full products feel natural.",
+    period: "Aug 2023 — Jan 2024",
+    org: "Void Nepal (Codynn)",
+    role: "Project Manager",
+    place: "Kathmandu · Full-time",
+    body: "Led a 30-person team through the Codynn web app, compiler and challenges section. Defined scope and deliverables, ran Scrum, owned documentation and QA, and kept every department informed.",
   },
+  {
+    period: "Oct 2023 — Present",
+    org: "IOTinnovators",
+    role: "Steering Leader (Volunteer)",
+    place: "Education",
+    body: "Steering leadership for a student technology community — guiding direction and helping others build.",
+  },
+];
+
+export const education = [
+  {
+    period: "2023 — 2025",
+    org: "University of Wolverhampton",
+    detail: "BSc (Hons) Artificial Intelligence · First Class Honors",
+    note: "Machine Learning · Creative Problem Solving",
+  },
+  {
+    period: "2019 — 2022",
+    org: "Prasadi Academy",
+    detail: "Higher Secondary · Physical Science · Grade A+",
+    note: "",
+  },
+];
+
+export const skills = [
+  "Project Management",
+  "Product Ownership",
+  "Scrum",
+  "Agile",
+  "Cross-functional Collaboration",
+  "Roadmapping",
+  "Sprint Planning",
+  "Machine Learning",
+  "Creative Problem Solving",
+  "Project Planning",
+  "Figma",
+  "React",
+  "TypeScript",
+  "Python",
+  "Git",
+  "Teamwork",
+  "Leadership",
+  "Documentation",
 ];

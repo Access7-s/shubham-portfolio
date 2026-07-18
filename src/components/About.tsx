@@ -1,53 +1,59 @@
-import { GraduationCap, Rocket, Cpu, Sparkles } from "lucide-react";
-import { profile } from "../data";
-import { Reveal, SectionHeading } from "./Section";
-
-const cards = [
-  {
-    icon: Rocket,
-    title: "Ships real products",
-    body: "ERP, e-commerce, job platforms — software with actual users, not just demos.",
-  },
-  {
-    icon: GraduationCap,
-    title: "AI undergraduate",
-    body: "Herald College Kathmandu — studying machine learning and intelligent systems.",
-  },
-  {
-    icon: Cpu,
-    title: "Edge-first stack",
-    body: "TypeScript everywhere, React up front, Cloudflare Workers underneath.",
-  },
-  {
-    icon: Sparkles,
-    title: "Product mindset",
-    body: "Fast, boring to operate, genuinely useful — in that order.",
-  },
-];
+import { profile, stats } from "../data";
+import { Reveal, SectionHead } from "./Section";
 
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl px-6 py-28">
-      <SectionHeading kicker="01 — About" title="The short version" />
-      <div className="grid gap-10 md:grid-cols-2">
-        <Reveal className="space-y-4 text-mist leading-relaxed">
-          {profile.about.map((p) => (
-            <p key={p.slice(0, 20)}>{p}</p>
-          ))}
-          <p className="font-mono text-sm text-white/40">
-            alias: <span className="text-violet-300">{profile.alias}</span>
-          </p>
-        </Reveal>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {cards.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.08}>
-              <div className="glass h-full rounded-2xl p-5 transition-colors hover:border-violet-400/30">
-                <c.icon size={20} className="mb-3 text-violet-300" />
-                <h3 className="mb-1.5 font-display font-semibold">{c.title}</h3>
-                <p className="text-sm text-mist">{c.body}</p>
-              </div>
+    <section id="about" className="shell py-20 md:py-28">
+      <SectionHead no="01" kicker="Who / What" title="A short profile." />
+
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+        <div className="space-y-5 md:col-span-7">
+          {profile.about.map((p, i) => (
+            <Reveal key={i} delay={i * 0.08}>
+              <p className="text-xl leading-relaxed text-ink-2 md:text-2xl">
+                {i === 0 ? (
+                  <>
+                    <span className="mark-acid font-medium text-ink">
+                      Product strategy meets execution.
+                    </span>{" "}
+                    {p.replace(
+                      "I'm an Artificial Intelligence undergraduate (First Class Honors) who spends most of my time where product strategy meets execution. ",
+                      "",
+                    )}
+                  </>
+                ) : (
+                  p
+                )}
+              </p>
             </Reveal>
           ))}
+        </div>
+
+        <div className="md:col-span-5">
+          <Reveal delay={0.1}>
+            <div style={{ border: "2px solid var(--color-ink)" }}>
+              {stats.map((s, i) => (
+                <div
+                  key={s.label}
+                  className={`flex items-baseline justify-between gap-4 p-5 ${
+                    i !== 0 ? "hair-b" : ""
+                  }`}
+                  style={
+                    i !== 0
+                      ? { borderTop: "1px solid var(--rule)" }
+                      : undefined
+                  }
+                >
+                  <span className="font-display text-5xl leading-none md:text-6xl">
+                    {s.value}
+                  </span>
+                  <span className="meta max-w-[9rem] text-right text-ink-3">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

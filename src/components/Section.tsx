@@ -1,31 +1,6 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 
-export function SectionHeading({
-  kicker,
-  title,
-}: {
-  kicker: string;
-  title: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6 }}
-      className="mb-12"
-    >
-      <p className="mb-2 font-mono text-xs uppercase tracking-[0.3em] text-violet-300/70">
-        {kicker}
-      </p>
-      <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
-        {title}
-      </h2>
-    </motion.div>
-  );
-}
-
 export function Reveal({
   children,
   delay = 0,
@@ -37,13 +12,49 @@ export function Reveal({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 0.6, delay, ease: [0.7, 0, 0.2, 1] }}
       className={className}
     >
       {children}
     </motion.div>
+  );
+}
+
+export function SectionHead({
+  no,
+  kicker,
+  title,
+  onInk,
+}: {
+  no: string;
+  kicker: string;
+  title: string;
+  onInk?: boolean;
+}) {
+  return (
+    <div className="mb-12 md:mb-16">
+      <div
+        className={`meta mb-6 flex items-center justify-between pb-3 ${
+          onInk ? "" : ""
+        } hair-b`}
+      >
+        <span className="flex items-center gap-3">
+          <span className="flare tnum">({no})</span>
+          <span>{kicker}</span>
+        </span>
+        <span aria-hidden>✳</span>
+      </div>
+      <Reveal>
+        <h2
+          className="font-display"
+          style={{ fontSize: "var(--fs-display)" }}
+        >
+          {title}
+        </h2>
+      </Reveal>
+    </div>
   );
 }
