@@ -67,43 +67,61 @@ export default function Preloader() {
             <span className="tnum">{profile.name}</span>
           </div>
 
-          {/* center statement */}
-          <div className="meta mx-auto max-w-md text-center text-on-ink/50">
-            Technical Product Manager · Product Owner · Co-Founder of Aurora
-            Studios
-          </div>
-
-          {/* bottom: sprite (centered, above the progress line) + counter */}
-          <div>
-            <div className="mb-5 flex justify-center">
+          {/* center: signature signing itself as the loader fills */}
+          <div className="flex flex-1 flex-col items-center justify-center gap-5 py-6">
+            <div
+              className="relative"
+              style={{ width: "min(74vw, 340px)" }}
+            >
               <img
-                src="/img/sprite.png"
-                alt="Shubham — 16-bit"
-                className="pixelated animate-sprite"
+                src="/img/signature.png"
+                alt="Shubham Neupane signature"
+                className="w-full select-none"
+                style={{ clipPath: `inset(0 ${100 - count}% 0 0)` }}
+                draggable={false}
+              />
+              {/* pen nib sweeping the reveal edge */}
+              <div
+                className="absolute top-[8%] bottom-[8%] w-[2px] bg-flare"
                 style={{
-                  width: "clamp(120px, 22vw, 188px)",
-                  border: "2px solid var(--color-on-ink)",
+                  left: `${count}%`,
+                  opacity: count > 1 && count < 100 ? 0.9 : 0,
                 }}
+                aria-hidden
               />
             </div>
-            {/* progress line */}
+            <div className="meta text-on-ink/40">
+              {count < 100 ? "{ signing… }" : "{ signed }"}
+            </div>
+          </div>
+
+          {/* bottom: progress line, counter + 16-bit sprite in the corner */}
+          <div>
             <div
               className="mb-4 h-[2px] w-full origin-left bg-on-ink/20"
               aria-hidden
             >
               <div className="h-full bg-flare" style={{ width: `${count}%` }} />
             </div>
-            {/* counter + % */}
-            <div className="flex items-end justify-between">
+            <div className="flex items-end justify-between gap-4">
               <span
                 className="font-display leading-[0.8]"
                 style={{ fontSize: "clamp(4.5rem, 20vw, 18rem)" }}
               >
                 {count}
               </span>
-              <span className="meta tnum mb-3 hidden text-on-ink/50 sm:block">
-                {pad} %
-              </span>
+              <div className="mb-1 flex flex-col items-end gap-2">
+                <span className="meta tnum text-on-ink/40">{pad} %</span>
+                <img
+                  src="/img/sprite.png"
+                  alt="Shubham — 16-bit"
+                  className="pixelated animate-sprite"
+                  style={{
+                    width: "clamp(80px, 15vw, 120px)",
+                    border: "2px solid var(--color-on-ink)",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </motion.div>
