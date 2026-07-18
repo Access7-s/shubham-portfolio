@@ -72,6 +72,10 @@ export default function Hero() {
                 </li>
               ))}
             </ul>
+            <div className="meta mt-5 flex items-center gap-2">
+              <span className="flare">✳</span>
+              <span>Co-Founder · {profile.studio}</span>
+            </div>
           </motion.div>
 
           <motion.figure

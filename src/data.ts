@@ -19,7 +19,8 @@ export const profile = {
   photo: "/img/shubham.png",
   connections: "500+",
   followers: "1,662",
-  lede: "Technical Product Manager with a software-development foundation and an AI/ML specialization. I've shipped 4+ production apps for 1000+ users while leading cross-functional teams of 30–60.",
+  studio: "Aurora Studios",
+  lede: "Technical Product Manager and co-founder of Aurora Studios, with a software-development foundation and an AI/ML specialization. I've shipped 4+ production apps for 1000+ users while leading cross-functional teams of 30–60.",
   about: [
     "I sit where engineering meets the business. With a Computer Science (AI) background and hands-on technical grounding in distributed systems, OOP and cloud architecture, I can go deep with engineers on API design and infrastructure — then zoom out to own strategy, backlog and roadmap.",
     "I've defined product strategy for a college platform serving 500+ students, led a 30-person team to ship an EdTech product across web and mobile, and cut a deployment cycle by 35% by tightening how the team runs Scrum. I translate messy requirements into things people actually use.",
@@ -138,6 +139,13 @@ export type TimelineItem = {
 };
 
 export const experience: TimelineItem[] = [
+  {
+    period: "2024 — Present",
+    org: "Aurora Studios",
+    role: "Co-Founder",
+    place: "Kathmandu · Product Studio",
+    body: "Co-founded a product studio building software for small businesses and communities — a multi-tenant finance & inventory ERP, a verified hiring platform, and e-commerce, all shipped on the Cloudflare edge. I set product direction and stay hands-on across the stack.",
+  },
   {
     period: "Apr 2023 — Oct 2024",
     org: "Development Platform, HCK",
