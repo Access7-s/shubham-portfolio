@@ -4,7 +4,12 @@ import { Reveal, SectionHead } from "./Section";
 export default function Capabilities() {
   return (
     <section className="shell py-20 md:py-28">
-      <SectionHead no="02" kicker="How I work" title="What I bring." />
+      <SectionHead
+        no="02"
+        kicker="How I work"
+        title="What I bring."
+        count={String(capabilities.length).padStart(2, "0")}
+      />
 
       <div
         className="grid grid-cols-1 sm:grid-cols-2"

@@ -27,31 +27,30 @@ export function SectionHead({
   no,
   kicker,
   title,
-  onInk,
+  count,
 }: {
   no: string;
   kicker: string;
   title: string;
-  onInk?: boolean;
+  count?: string;
 }) {
   return (
     <div className="mb-12 md:mb-16">
-      <div
-        className={`meta mb-6 flex items-center justify-between pb-3 ${
-          onInk ? "" : ""
-        } hair-b`}
-      >
+      <div className="meta mb-6 flex items-center justify-between pb-3 hair-b">
         <span className="flex items-center gap-3">
           <span className="flare tnum">({no})</span>
-          <span>{kicker}</span>
+          <span>
+            {"{ "}
+            {kicker}
+            {" }"}
+          </span>
         </span>
-        <span aria-hidden>✳</span>
+        <span className="tnum" aria-hidden>
+          {count ? `{ ${count} }` : "{ * }"}
+        </span>
       </div>
       <Reveal>
-        <h2
-          className="font-display"
-          style={{ fontSize: "var(--fs-display)" }}
-        >
+        <h2 className="font-display" style={{ fontSize: "var(--fs-display)" }}>
           {title}
         </h2>
       </Reveal>

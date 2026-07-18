@@ -4,7 +4,12 @@ import { Reveal, SectionHead } from "./Section";
 export default function Experience() {
   return (
     <section id="experience" className="shell py-20 md:py-28">
-      <SectionHead no="04" kicker="Track Record" title="Where I've worked." />
+      <SectionHead
+        no="04"
+        kicker="Track Record"
+        title="Where I've worked."
+        count={String(experience.length).padStart(2, "0")}
+      />
 
       <div className="grid grid-cols-1 gap-x-12 md:grid-cols-12">
         {/* Experience */}
@@ -15,7 +20,11 @@ export default function Experience() {
                 className="grid grid-cols-1 gap-2 py-7 sm:grid-cols-[10rem_1fr]"
                 style={{ borderTop: "2px solid var(--color-ink)" }}
               >
-                <div className="meta tnum text-ink-3">{item.period}</div>
+                <div className="meta tnum text-ink-3">
+                  {"{ "}
+                  {item.period}
+                  {" }"}
+                </div>
                 <div>
                   <h3 className="font-display text-2xl leading-tight md:text-3xl">
                     {item.role}
@@ -37,11 +46,17 @@ export default function Experience() {
         {/* Education */}
         <div className="mt-12 md:col-span-4 md:mt-0">
           <Reveal>
-            <div className="meta hair-b mb-6 pb-3 text-ink-3">Education</div>
+            <div className="meta hair-b mb-6 pb-3 text-ink-3">
+              {"{ Education }"}
+            </div>
             <div className="space-y-8">
               {education.map((e) => (
                 <div key={e.org}>
-                  <div className="meta tnum mb-1 text-ink-3">{e.period}</div>
+                  <div className="meta tnum mb-1 text-ink-3">
+                    {"{ "}
+                    {e.period}
+                    {" }"}
+                  </div>
                   <h4 className="font-display text-xl leading-tight">
                     {e.org}
                   </h4>

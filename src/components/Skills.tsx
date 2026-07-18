@@ -31,9 +31,9 @@ export default function Skills() {
       <div className="shell">
         <div className="meta mb-8 flex items-center justify-between text-ink-3">
           <span>
-            <span className="flare">(05)</span> Capabilities Index
+            <span className="flare">(05)</span> {"{ Capabilities Index }"}
           </span>
-          <span aria-hidden>✳ ✳ ✳</span>
+          <span className="tnum" aria-hidden>{`{ ${skills.length} }`}</span>
         </div>
       </div>
       <div className="space-y-1">

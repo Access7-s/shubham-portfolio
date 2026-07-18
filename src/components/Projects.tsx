@@ -69,7 +69,12 @@ export default function Projects() {
   return (
     <section id="work" className="py-20 md:py-28">
       <div className="shell">
-        <SectionHead no="03" kicker="Selected Work" title="Things I've led & built." />
+        <SectionHead
+          no="03"
+          kicker="Selected Work"
+          title="Things I've led & built."
+          count={String(projects.length).padStart(2, "0")}
+        />
       </div>
       <div style={{ borderBottom: "2px solid var(--color-ink)" }}>
         {projects.map((p) => (
