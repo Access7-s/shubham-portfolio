@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { profile } from "../data";
 
+const skipIntro =
+  typeof window !== "undefined" &&
+  new URLSearchParams(window.location.search).has("nointro");
+
 export default function Preloader() {
-  const [count, setCount] = useState(0);
-  const [done, setDone] = useState(false);
+  const [count, setCount] = useState(skipIntro ? 100 : 0);
+  const [done, setDone] = useState(skipIntro);
 
   useEffect(() => {
+    if (skipIntro) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
       setCount(100);
@@ -14,20 +19,24 @@ export default function Preloader() {
       return () => clearTimeout(t);
     }
     const DURATION = 2000;
-    let startTs = 0;
-    let raf = 0;
-    const tick = (t: number) => {
-      if (!startTs) startTs = t;
-      const p = Math.min(1, (t - startTs) / DURATION);
+    const STEP = 20;
+    let elapsed = 0;
+    // Interval-based (keeps advancing on backgrounded tabs where rAF pauses)
+    const id = setInterval(() => {
+      elapsed += STEP;
+      const p = Math.min(1, elapsed / DURATION);
       const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
       setCount(Math.round(eased * 100));
-      if (p < 1) raf = requestAnimationFrame(tick);
-      else raf = window.setTimeout(() => setDone(true), 350) as unknown as number;
-    };
-    raf = requestAnimationFrame(tick);
+      if (p >= 1) {
+        clearInterval(id);
+        setTimeout(() => setDone(true), 350);
+      }
+    }, STEP);
+    // Hard safety net: always dismiss, even if the tab throttles timers
+    const hard = setTimeout(() => setDone(true), DURATION + 1500);
     return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(raf);
+      clearInterval(id);
+      clearTimeout(hard);
     };
   }, []);
 
@@ -64,17 +73,27 @@ export default function Preloader() {
             Studios
           </div>
 
-          {/* bottom: giant counter + progress rule */}
+          {/* bottom: sprite (centered, above the progress line) + counter */}
           <div>
+            <div className="mb-5 flex justify-center">
+              <img
+                src="/img/sprite.png"
+                alt="Shubham — 16-bit"
+                className="pixelated animate-sprite"
+                style={{
+                  width: "clamp(120px, 22vw, 188px)",
+                  border: "2px solid var(--color-on-ink)",
+                }}
+              />
+            </div>
+            {/* progress line */}
             <div
               className="mb-4 h-[2px] w-full origin-left bg-on-ink/20"
               aria-hidden
             >
-              <div
-                className="h-full bg-flare"
-                style={{ width: `${count}%` }}
-              />
+              <div className="h-full bg-flare" style={{ width: `${count}%` }} />
             </div>
+            {/* counter + % */}
             <div className="flex items-end justify-between">
               <span
                 className="font-display leading-[0.8]"

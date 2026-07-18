@@ -214,3 +214,66 @@ export const skills = [
   "GitHub",
   "AI / ML",
 ];
+
+export type Milestone = {
+  year: string;
+  tag?: string;
+  title: string;
+  sub: string;
+  img?: string; // photo card
+  stat?: string; // stat card (when no photo)
+  statLabel?: string;
+};
+
+// Chronological journey. `img` nodes are photo cards; `stat` nodes render a
+// bold value instead. Drop real photos into /public/img/timeline and swap a
+// stat node for `img: "/img/timeline/<file>"` to enrich it.
+export const milestones: Milestone[] = [
+  {
+    year: "2020",
+    title: "Prasadi Academy",
+    sub: "Higher Secondary · Physical Science",
+    stat: "A+",
+    statLabel: "Grade",
+  },
+  {
+    year: "2023",
+    title: "Univ. of Wolverhampton",
+    sub: "BSc (Hons) Computer Science (AI)",
+    stat: "1st",
+    statLabel: "Class Honors",
+  },
+  {
+    year: "2023",
+    title: "Product Owner & PM",
+    sub: "Herald · Void Nepal (Codynn)",
+    stat: "30–60",
+    statLabel: "Team led",
+  },
+  {
+    year: "2024",
+    title: "Codynn & Herald App",
+    sub: "Shipped — Play Store & web",
+    stat: "1000+",
+    statLabel: "Users served",
+  },
+  {
+    year: "2026",
+    tag: "Jun 8",
+    title: "Aurora Studios",
+    sub: "Co-founded a product studio",
+    img: "/img/shubham.png",
+  },
+  {
+    year: "2026",
+    title: "Masto Coffee",
+    sub: "Storefront + admin CMS, shipped",
+    img: "/img/work/masto.png",
+  },
+  {
+    year: "2026",
+    title: "GMC Job Portal",
+    sub: "Verified hiring platform, shipped",
+    img: "/img/work/gmc.png",
+  },
+];

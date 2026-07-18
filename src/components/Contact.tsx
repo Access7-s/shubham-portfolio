@@ -7,7 +7,7 @@ export default function Contact() {
       <div className="shell py-20 md:py-28">
         <div className="meta hair-b flex items-center justify-between pb-4">
           <span>
-            <span className="text-acid">(06)</span> {"{ Contact }"}{" "}
+            <span className="text-acid">(07)</span> {"{ Contact }"}{" "}
             <span className="tnum text-on-ink/50">{`{ ${socials.length} }`}</span>
           </span>
           <span>{profile.coords}</span>
