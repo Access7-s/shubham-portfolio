@@ -1,15 +1,22 @@
 # Shubham Neupane — Portfolio
 
-Personal portfolio of **Shubham Neupane** — full-stack developer & AI undergraduate from Kathmandu, Nepal.
+Personal portfolio of **Shubham Neupane** — Artificial Intelligence · Product Owner · Project Manager from Kathmandu, Nepal.
+
+**Design direction:** "Broadsheet" — an editorial × brutalist system
+reverse-engineered from [jensbosman.nl](https://jensbosman.nl),
+[olhalazarieva.com](https://www.olhalazarieva.com) and
+[109ichiki.com](https://109ichiki.com). See [`TOKENS.md`](./TOKENS.md) for the
+full token system (color, type, structure, motion).
 
 ## Stack
 
 - [React 18](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
 - [Vite](https://vite.dev) — build tooling
-- [Tailwind CSS v4](https://tailwindcss.com) — styling
+- [Tailwind CSS v4](https://tailwindcss.com) — styling (tokens in `@theme`)
 - [Framer Motion](https://motion.dev) — animations
 - [Lenis](https://lenis.darkroom.engineering) — smooth scrolling
 - [Lucide](https://lucide.dev) — icons
+- Type: **Fraunces** (display serif), **Archivo** (grotesk), **Spline Sans Mono** (mono)
 
 ## Development
 
