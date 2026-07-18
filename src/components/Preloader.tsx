@@ -71,7 +71,7 @@ export default function Preloader() {
           <div className="flex flex-1 flex-col items-center justify-center py-6">
             <div style={{ width: "min(74vw, 340px)" }}>
               <img
-                src="/img/signature2.png"
+                src="/img/signature3.png"
                 alt="Shubham Neupane signature"
                 className="w-full select-none"
                 style={{ clipPath: `inset(0 ${100 - count}% 0 0)` }}
