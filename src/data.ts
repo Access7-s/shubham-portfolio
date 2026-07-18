@@ -85,15 +85,6 @@ export type Project = {
 export const projects: Project[] = [
   {
     index: "01",
-    title: "Aurora IDP",
-    role: "Co-Founder · Platform",
-    year: "2026",
-    description:
-      "The internal developer platform behind every Aurora Studios product. One command — `aurora deploy` — ships a project to Cloudflare Workers with a D1 database, an R2 bucket, Better Auth and rate limiting wired in, across defined resource tiers. It's how a small studio ships a dozen apps without a dozen setups.",
-    tags: ["Cloudflare Workers", "D1", "R2", "Platform / DX"],
-  },
-  {
-    index: "02",
     title: "Vitra Bahira ERP",
     role: "Co-Founder & Product Lead",
     year: "2026",
@@ -102,7 +93,7 @@ export const projects: Project[] = [
     tags: ["React", "Hono", "Double-Entry", "Cloudflare"],
   },
   {
-    index: "03",
+    index: "02",
     title: "GMC Job Portal",
     role: "Product & Engineering",
     year: "2026",
@@ -111,13 +102,22 @@ export const projects: Project[] = [
     tags: ["Next.js 16", "Cloudflare", "D1", "Better Auth"],
   },
   {
-    index: "04",
+    index: "03",
     title: "Masto Coffee",
     role: "Product & Engineering",
     year: "2026",
     description:
       "Storefront and admin CMS for the Masto Artisan Roastery, migrated from a Supabase app to Cloudflare Workers. A React / Vite / shadcn UI served as static assets, with a Worker API backed by D1 and R2.",
     tags: ["React", "Cloudflare Workers", "D1", "R2"],
+  },
+  {
+    index: "04",
+    title: "Aurora IDP",
+    role: "Product Advisor",
+    year: "2026",
+    description:
+      "Aurora Studios' internal developer platform — one command ships a project to Cloudflare Workers with a D1 database, R2 bucket, Better Auth and rate limiting bound. Here I advised on direction rather than building it hands-on: which features to prioritize and what the deploy experience should feel like.",
+    tags: ["Advisory", "Feature Strategy", "Platform / DX", "Cloudflare"],
   },
   {
     index: "05",

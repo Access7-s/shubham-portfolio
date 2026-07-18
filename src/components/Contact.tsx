@@ -26,7 +26,7 @@ export default function Contact() {
         <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-12">
           <Reveal className="md:col-span-7">
             <div
-              className="grid grid-cols-2 sm:grid-cols-4"
+              className="grid grid-cols-2 lg:grid-cols-4"
               style={{ borderTop: "2px solid var(--color-on-ink)", borderLeft: "2px solid var(--color-on-ink)" }}
             >
               {socials.map((s) => (
@@ -35,14 +35,14 @@ export default function Contact() {
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-center justify-between p-4 transition-colors duration-400 hover:bg-acid hover:text-ink"
+                  className="group flex min-w-0 items-center justify-between gap-2 overflow-hidden px-3 py-4 transition-colors duration-400 hover:bg-acid hover:text-ink"
                   style={{
                     borderRight: "2px solid var(--color-on-ink)",
                     borderBottom: "2px solid var(--color-on-ink)",
                   }}
                 >
-                  <span className="meta">{s.label}</span>
-                  <s.icon size={16} />
+                  <span className="meta truncate">{s.label}</span>
+                  <s.icon size={16} className="shrink-0" />
                 </a>
               ))}
             </div>
