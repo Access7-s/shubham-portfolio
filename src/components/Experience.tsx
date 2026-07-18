@@ -11,63 +11,74 @@ export default function Experience() {
         count={String(experience.length).padStart(2, "0")}
       />
 
-      <div className="grid grid-cols-1 gap-x-12 md:grid-cols-12">
-        {/* Experience */}
-        <div className="md:col-span-8">
-          {experience.map((item, i) => (
-            <Reveal key={item.role + i} delay={i * 0.05}>
-              <div
-                className="grid grid-cols-1 gap-2 py-7 sm:grid-cols-[10rem_1fr]"
-                style={{ borderTop: "2px solid var(--color-ink)" }}
-              >
-                <div className="meta tnum text-ink-3">
-                  {"{ "}
-                  {item.period}
-                  {" }"}
-                </div>
-                <div>
-                  <h3 className="font-display text-2xl leading-tight md:text-3xl">
-                    {item.role}
-                  </h3>
-                  <div className="meta mt-1.5 mb-3 flex flex-wrap gap-x-3 text-ink-2">
-                    <span className="flare">{item.org}</span>
-                    <span aria-hidden>/</span>
-                    <span>{item.place}</span>
-                  </div>
-                  <p className="max-w-xl leading-relaxed text-ink-2">
-                    {item.body}
-                  </p>
+      {/* compact editorial ledger */}
+      <div style={{ borderBottom: "2px solid var(--color-ink)" }}>
+        {experience.map((item, i) => (
+          <Reveal key={item.role + i} delay={i * 0.05}>
+            <div
+              className="group grid grid-cols-12 items-baseline gap-x-4 gap-y-2 py-6 transition-colors duration-500 hover:bg-ink hover:text-on-ink md:py-7"
+              style={{ borderTop: "2px solid var(--color-ink)" }}
+            >
+              {/* period */}
+              <div className="meta tnum col-span-12 text-ink-3 group-hover:text-on-ink/60 md:col-span-3 md:pl-2">
+                {"{ "}
+                {item.period}
+                {" }"}
+              </div>
+
+              {/* role + org */}
+              <div className="col-span-12 md:col-span-4">
+                <h3 className="font-display text-2xl leading-none md:text-3xl">
+                  {item.role}
+                </h3>
+                <div className="meta mt-2 flex flex-wrap gap-x-2 gap-y-0.5">
+                  <span className="flare">{item.org}</span>
+                  <span aria-hidden className="text-ink-3 group-hover:text-on-ink/50">
+                    · {item.place}
+                  </span>
                 </div>
               </div>
-            </Reveal>
-          ))}
-        </div>
 
-        {/* Education */}
-        <div className="mt-12 md:col-span-4 md:mt-0">
-          <Reveal>
-            <div className="meta hair-b mb-6 pb-3 text-ink-3">
-              {"{ Education }"}
-            </div>
-            <div className="space-y-8">
-              {education.map((e) => (
-                <div key={e.org}>
-                  <div className="meta tnum mb-1 text-ink-3">
-                    {"{ "}
-                    {e.period}
-                    {" }"}
-                  </div>
-                  <h4 className="font-display text-xl leading-tight">
-                    {e.org}
-                  </h4>
-                  <p className="mt-1 text-ink-2">{e.detail}</p>
-                  {e.note && <p className="meta mt-1 text-ink-3">{e.note}</p>}
-                </div>
-              ))}
+              {/* short + metric tags */}
+              <div className="col-span-12 md:col-span-5 md:pr-2">
+                <p className="max-w-md leading-snug text-ink-2 group-hover:text-on-ink/80">
+                  {item.short}
+                </p>
+                <ul className="meta mt-3 flex flex-wrap gap-x-4 gap-y-1 text-ink-3 group-hover:text-on-ink/60">
+                  {item.tags.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </Reveal>
-        </div>
+        ))}
       </div>
+
+      {/* education — compact two-up footer */}
+      <Reveal>
+        <div className="mt-8 flex flex-wrap items-center gap-3 pb-2 md:mt-10">
+          <span className="meta text-ink-3">{"{ Education }"}</span>
+        </div>
+        <div className="grid grid-cols-1 gap-x-12 gap-y-6 sm:grid-cols-2">
+          {education.map((e) => (
+            <div
+              key={e.org}
+              className="grid grid-cols-1 gap-1 pt-4 sm:grid-cols-[7rem_1fr]"
+              style={{ borderTop: "1px solid var(--rule)" }}
+            >
+              <div className="meta tnum text-ink-3">{e.period}</div>
+              <div>
+                <h4 className="font-display text-lg leading-tight">{e.org}</h4>
+                <p className="mt-0.5 text-sm text-ink-2">{e.detail}</p>
+                {e.note && (
+                  <p className="meta mt-1 text-ink-3">{e.note}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }

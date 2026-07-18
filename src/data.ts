@@ -144,7 +144,8 @@ export type TimelineItem = {
   org: string;
   role: string;
   place: string;
-  body: string;
+  short: string;
+  tags: string[];
 };
 
 export const experience: TimelineItem[] = [
@@ -152,29 +153,33 @@ export const experience: TimelineItem[] = [
     period: "Jun 2026 — Present",
     org: "Aurora Studios",
     role: "Co-Founder",
-    place: "Kathmandu · Product Studio",
-    body: "Co-founded a product studio building software for small businesses and communities — a multi-tenant finance & inventory ERP, a verified hiring platform, and e-commerce, all shipped on the Cloudflare edge. I set product direction and stay hands-on across the stack.",
+    place: "Product Studio",
+    short: "Co-founded a studio shipping software for small businesses and communities on the Cloudflare edge.",
+    tags: ["Product Direction", "Full-Stack", "Cloudflare"],
   },
   {
     period: "Apr 2023 — Oct 2024",
     org: "Development Platform, HCK",
     role: "Product Owner",
-    place: "Kathmandu · Internship",
-    body: "Defined product strategy and maintained the feature backlog for a college management system serving 500+ students, reaching 85% user satisfaction through iterative feedback and data-driven prioritization. Collaborated with an engineering team of 15+ on technical design reviews and sprint planning, and established a metrics framework tracking adoption, retention and performance against quarterly OKRs.",
+    place: "Internship",
+    short: "Owned strategy & backlog for a college platform, prioritizing against quarterly OKRs.",
+    tags: ["500+ users", "85% CSAT", "15+ engineers", "OKRs"],
   },
   {
     period: "Jun 2023 — Jan 2024",
-    org: "Void Nepal Pvt. Ltd",
+    org: "Void Nepal (Codynn)",
     role: "Project Manager",
-    place: "Kathmandu · Internship",
-    body: "Led a cross-functional team of 30 developers, designers and QA engineers to ship the Codynn web and mobile apps across 8 sprint cycles. Implemented Scrum that cut deployment cycle time by 35% and lifted velocity from 20 to 32 story points, authored the SRS, and architected an online compiler for 5+ languages using Docker for secure execution.",
+    place: "Internship",
+    short: "Led a cross-functional team to ship Codynn web + mobile and an online compiler.",
+    tags: ["Team of 30", "−35% cycle", "20→32 velocity", "Docker"],
   },
   {
     period: "Ongoing",
-    org: "IoT Innovators Community",
-    role: "Steering Leader (Volunteer)",
-    place: "Kathmandu",
-    body: "Steering leadership for a student technology community — planning and running events, handling administration and documentation, and moderating a Discord community of 1200+ members.",
+    org: "IoT Innovators",
+    role: "Steering Leader",
+    place: "Volunteer",
+    short: "Steering a student tech community — events, docs and a 1200+ member Discord.",
+    tags: ["Community", "Events", "1200+ Discord"],
   },
 ];
 
