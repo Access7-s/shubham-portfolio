@@ -10,7 +10,6 @@ import Experience from "./components/Experience";
 import Timeline from "./components/Timeline";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
-import ScrollProgress from "./components/ScrollProgress";
 import Preloader from "./components/Preloader";
 
 export default function App() {
@@ -32,7 +31,6 @@ export default function App() {
   return (
     <div className="grain relative min-h-screen">
       <Preloader />
-      <ScrollProgress />
       <Nav />
       <main>
         <Hero />
