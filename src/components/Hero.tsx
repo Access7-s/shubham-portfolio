@@ -35,9 +35,34 @@ export default function Hero() {
             </motion.div>
 
             {/* MEGA NAME */}
-            <div className="relative pt-6 md:pt-10">
-              <motion.h1
+            <div className="relative pt-6 md:pt-10 md:pr-28 lg:pr-36">
+              {/* NEPALI GREETING — set sideways down the right side of the name */}
+              <motion.div
                 custom={1}
+                initial="hidden"
+                animate="show"
+                variants={wipe}
+                className="mb-5 flex flex-col items-end gap-1 md:absolute md:bottom-0 md:right-0 md:top-0 md:mb-0 md:justify-center md:gap-3"
+              >
+                <span
+                  lang="ne"
+                  className="font-deva leading-none md:[writing-mode:vertical-rl]"
+                  style={{
+                    fontSize: "clamp(2.25rem, 5.8vw, 5.5rem)",
+                    color: "var(--color-on-ink)",
+                    background: "var(--color-ink)",
+                    padding: "0.22em 0.14em",
+                  }}
+                >
+                  नमस्कार
+                </span>
+                <span className="meta whitespace-nowrap text-ink-3">
+                  {"{ Namaskar }"}
+                </span>
+              </motion.div>
+
+              <motion.h1
+                custom={2}
                 initial="hidden"
                 animate="show"
                 variants={wipe}
@@ -47,7 +72,7 @@ export default function Hero() {
                 SHUBHAM
               </motion.h1>
               <motion.h1
-                custom={2}
+                custom={3}
                 initial="hidden"
                 animate="show"
                 variants={wipe}
@@ -61,7 +86,7 @@ export default function Hero() {
             {/* lower grid: headline + photo + lede */}
             <div className="mt-10 grid grid-cols-1 gap-8 rule-t pt-8 md:mt-14 md:grid-cols-12">
               <motion.div
-                custom={3}
+                custom={4}
                 initial="hidden"
                 animate="show"
                 variants={wipe}
@@ -89,7 +114,7 @@ export default function Hero() {
               </motion.div>
 
               <motion.figure
-                custom={4}
+                custom={5}
                 initial="hidden"
                 animate="show"
                 variants={wipe}
@@ -112,7 +137,7 @@ export default function Hero() {
               </motion.figure>
 
               <motion.div
-                custom={5}
+                custom={6}
                 initial="hidden"
                 animate="show"
                 variants={wipe}

@@ -9,6 +9,7 @@
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-grotesk: "Archivo", system-ui, -apple-system, sans-serif;
   --font-mono: "Spline Sans Mono", ui-monospace, "SF Mono", monospace;
+  --font-deva: "Baloo 2", "Noto Sans Devanagari", sans-serif;
 
   /* Color — white paper + ink monochrome, duotone accent */
   --color-paper: #ffffff;
@@ -93,6 +94,14 @@ body {
   letter-spacing: -0.03em;
   line-height: 0.9;
   font-optical-sizing: auto;
+}
+
+/* Devanagari greeting — heavy, tight, sits above the mega name */
+.font-deva {
+  font-family: var(--font-deva);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 .meta {

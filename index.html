@@ -208,15 +208,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Archivo:wght@400;500;600;700;800;900&family=Spline+Sans+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Archivo:wght@400;500;600;700;800;900&family=Spline+Sans+Mono:wght@400;500;600&family=Baloo+2:wght@700;800&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      /* SEO fallback stays in the DOM for non-JS/text crawlers, but is hidden
+         from view so it never flashes before the React app mounts and replaces
+         #root. JS-rendering crawlers (Googlebot) index the real app; text
+         crawlers read this markup from source regardless of CSS. */
+      #root > .seo-fallback {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div id="root">
       <!-- Crawlable fallback: replaced by the React app on load. Ensures search
            engines and social crawlers index the real content even without JS. -->
-      <main style="max-width: 60rem; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif; color: #0c0b09;">
+      <main class="seo-fallback" style="max-width: 60rem; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif; color: #0c0b09;">
         <h1>Shubham Neupane</h1>
         <p><strong>Technical Product Manager · Product Owner · Project Manager</strong> — Kathmandu, Nepal.</p>
         <p>
