@@ -154,7 +154,7 @@ export default function Hero() {
                     Say hello
                   </a>
                 </div>
-                <div className="meta mt-6 flex gap-5">
+                <div className="meta mt-6 flex flex-wrap gap-x-5 gap-y-2">
                   {socials.slice(0, 4).map((s) => (
                     <a
                       key={s.label}
