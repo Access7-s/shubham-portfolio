@@ -1,79 +1,107 @@
-# Design Tokens — "Broadsheet" (Editorial × Brutalist)
+# Design Tokens — "Paper Garden" (v8 White)
 
-Reverse-engineered and synthesized from three references:
+Ported from the Claude Design file `Portfolio v8 White.dc.html`. The case-study
+pages were re-skinned from `Case Study.dc.html`, which was drawn against an
+earlier cream-and-multicolour palette, into the tokens below so the whole site
+reads as one system.
 
-| Reference | What we took |
-|---|---|
-| **jensbosman.nl** | Mono-chrome ink/paper base, oversized display type, a single loud accent, wide letter-spacing on labels |
-| **olhalazarieva.com** | Condensed heavy display + monospace meta pairing, warm off-white paper, hairline rules |
-| **109ichiki.com** | Fluorescent accent, crisp lines, whitespace-forward brutalist grid, monospace numerals |
-
-The direction: a **brutalist avant-garde broadsheet** — raw 12-column grid, hard black rules, oversized editorial serif headlines in tension with monospace meta-labels, and a duotone fluorescent accent pair. No rounded corners, no soft shadows, no glassmorphism.
+The direction: **warm editorial, not brutalist**. White paper, deep forest-green
+ink and a butter-yellow accent; generous rounded corners; one oversized
+condensed grotesk doing the shouting, an italic serif doing the talking back,
+and a monospace keeping the notes. Hand-drawn doodles and stickers stop it
+feeling corporate.
 
 ---
 
 ## 1. Color
 
-Paper + ink monochrome base, two spot accents (one warm/loud for paper, one neon for dark blocks).
+Forest ink on white, butter accent, and a set of pale card tints that each
+project wears consistently across the fan, the grid and its case study.
 
 | Token | Value | Role |
 |---|---|---|
-| `--paper` | `#FFFFFF` | White background (primary) |
-| `--paper-2` | `#F4F4F1` | Recessed panel / alternate row |
-| `--ink` | `#0C0B09` | Near-black text, rules, dark blocks |
-| `--ink-2` | `#2A2822` | Secondary text on paper |
-| `--ink-3` | `#6B6B66` | Muted meta text |
-| `--flare` | `#FF3B1E` | **Primary accent** — vermilion, works on paper & ink |
-| `--acid` | `#CBFF1D` | **Neon accent** — acid lime, for dark blocks & highlight marks |
-| `--rule` | `rgba(12,11,9,.18)` | Hairline dividers on paper |
-| `--rule-strong` | `#0C0B09` | Heavy structural borders |
-| `--on-ink` | `#F5F5F2` | Near-white text on ink blocks |
+| `--color-paper` | `#FFFFFF` | Page background |
+| `--color-ink` | `#1E3A2B` | Deep forest green — all body text, rules, dark blocks |
+| `--color-ink-hover` | `#2F5A3F` | Link hover; the lighter green on dark tiles |
+| `--color-butter` | `#EFD97A` | **Primary accent** — Selected works block, badges, stickers, footer mail |
+| `--color-cream` | `#F7EFC4` | Pale tint — Sahara Ghar, wall tiles |
+| `--color-sky` | `#DCE6F0` | Pale blue — GMC Job Portal |
+| `--color-sage` | `#DDE8D9` | Pale green — Aurora OS, "Spec it" |
+| `--color-cocoa` | `#3B2A1E` | Dark brown — Masto Coffee |
+| `--color-muted` | `#D3DCCF` | Inactive ticker names only |
 
-**Rules of use:** one accent per block. `--flare` is the default interactive/emphasis color on paper. `--acid` only appears on `--ink` blocks or as a highlighter mark behind ink text. Never place `--acid` text directly on `--paper` (low contrast).
+**Rules of use:** `--color-ink` is the default text colour everywhere, not black.
+`--color-butter` is the only loud colour; one block of it per screenful. The pale
+tints are card backgrounds, never text colours. White text appears only on
+`--color-ink` and `--color-cocoa`.
 
 ## 2. Typography
 
-Three families — editorial serif × brutalist mono × structural grotesk.
+Four families, each with exactly one job.
 
 | Token | Stack | Role |
 |---|---|---|
-| `--font-display` | `"Fraunces", Georgia, serif` | Oversized editorial headlines (wght 900, high optical size, slight slant) |
-| `--font-grotesk` | `"Archivo", system-ui, sans-serif` | Body, buttons, structural labels |
-| `--font-mono` | `"Spline Sans Mono", ui-monospace, monospace` | Meta-labels, tags, numerals, coordinates |
+| `--font-display` | `"Bricolage Grotesque", "Kalam", system-ui` | Everything structural — headings, body, nav, buttons |
+| `--font-serif` | `"Instrument Serif", Georgia, serif` | Italic second word of every heading |
+| `--font-mono` | `"IBM Plex Mono", ui-monospace` | Meta labels, captions, table keys |
+| `--font-hand` | `"Kalam", cursive` | Handwritten asides and stickers |
 
-**Type scale** (fluid, brutalist big-jumps):
+**The width axis.** Bricolage Grotesque is variable on `opsz`, `wdth` and `wght`.
+Its `wdth` axis runs **75%–100%**, so the font URL requests that axis explicitly
+and `.t-cond` (`font-stretch: 75%`) gives genuinely condensed type. The source
+design asked for `font-stretch: 112%` in places; 112 is out of range and clamps
+to 100, so those places simply use the normal width.
 
-| Token | clamp() | Use |
-|---|---|---|
-| `--fs-mega` | `clamp(3.25rem, 13vw, 13rem)` | Hero name |
-| `--fs-display` | `clamp(2.5rem, 7vw, 6rem)` | Section openers |
-| `--fs-h2` | `clamp(1.75rem, 4vw, 3.25rem)` | Sub-heads |
-| `--fs-h3` | `clamp(1.15rem, 2vw, 1.6rem)` | Card titles |
-| `--fs-body` | `1.0625rem` | Paragraphs |
-| `--fs-meta` | `0.75rem` | Mono labels (uppercase, `tracking .18em`) |
+**The heading formula.** Every section heading is two words: the first set in
+Bricolage 800 uppercase, the second in Instrument Serif italic, lower-case, with
+`letter-spacing: -.02em`. "Selected *works*", "How I *work*", "The *wall*",
+"One person *spec to* shipped". Do not break this pattern.
 
-**Treatments:** display uses `letter-spacing: -0.03em`, `line-height: 0.92`. Meta labels are `text-transform: uppercase; letter-spacing: 0.18em`. Numerals use tabular mono.
+**Kalam** also sits in the display fallback chain purely to cover Devanagari —
+Bricolage has no Devanagari glyphs, and नमस्कार appears on the wall.
+
+| Class | Rule |
+|---|---|
+| `.t-h2` | `clamp(40px,6.6vw,120px)`, wght 800, `lh .86`, `ls -.045em`, uppercase |
+| `.t-cond` | `font-stretch: 75%` |
+| `.t-serif` | Instrument Serif, italic, 400, normal case |
+| `.t-mono` | IBM Plex Mono, 12px, uppercase |
+| `.t-hand` | Kalam |
 
 ## 3. Structure
 
 | Token | Value | Role |
 |---|---|---|
-| `--maxw` | `1440px` | Page max width |
-| `--gutter` | `clamp(1rem, 4vw, 3.5rem)` | Page side padding |
-| `--radius` | `0` | Brutalist — no rounded corners anywhere |
-| `--bd-hair` | `1px` | Hairline rule |
-| `--bd` | `2px` | Standard border |
-| `--bd-heavy` | `4px` | Heavy structural border |
+| `--gutter` | `clamp(16px, 2.4vw, 32px)` | Page side padding |
+| `--r-card` | `18px` | Project cards, cover images |
+| `--r-panel` | `28px` | Process cards, the wall panel |
 
-**Spacing scale** (8px base): `--s-1: .5rem`, `--s-2: 1rem`, `--s-3: 1.5rem`, `--s-4: 2.5rem`, `--s-5: 4rem`, `--s-6: 6.5rem`, `--s-7: 10rem`.
+Rounded corners are part of the look — unlike the previous Broadsheet system,
+nothing here is square. Pills use `border-radius: 999px`. Hairlines are
+`1.5px solid #1E3A2B`; the ruler bands around the ticker are a 1px-on-9px
+repeating gradient at 40% opacity.
+
+Sections are separated by `border-top: 1.5px solid` — except the butter
+Selected works block, which separates itself by colour.
 
 ## 4. Motion
 
 | Token | Value | Role |
 |---|---|---|
-| `--ease` | `cubic-bezier(0.7, 0, 0.2, 1)` | Sharp editorial easing |
-| `--dur` | `0.5s` | Standard transition |
-| Reveal | translateY(28px) + clip-path wipe | Section entrance |
-| Hover | invert (ink↔paper), no scale on brutalist blocks | Buttons, links, cards |
+| `--ease-out` | `cubic-bezier(0.2, 0.8, 0.2, 1)` | Fan cards, ticker, image hover |
+| `--ease-sharp` | `cubic-bezier(0.7, 0, 0.2, 1)` | Case-study wipes |
 
-All motion respects `prefers-reduced-motion`.
+| Keyframes | Use |
+|---|---|
+| `spin` | The "Let's work" badge (14s) and the wall ring (70s, with each card counter-spinning to stay upright) |
+| `wob` | Doodles rocking ±3° (3.4s, staggered) |
+| `pop` | Stickers landing along the pointer trail |
+| `wipeOut` | Colour panel clearing on case-study entry |
+
+Scrolling is smoothed by Lenis, which owns the scroll position — anchor jumps
+and route changes go through `lib/smooth.ts`, never `window.scrollTo`.
+
+**Reduced motion.** `prefers-reduced-motion: reduce` disables every animation and
+transition outright. Anything that *moves into place* must therefore also work
+when it cannot move: the case-study wipe panel unmounts on a timer rather than
+relying on its animation's fill mode, and Lenis is not started at all.

@@ -3,12 +3,64 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://shubhamneupane07.com.np/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://shubhamneupane07.com.np/img/og.png</image:loc>
-      <image:title>Shubham Neupane — Technical Product Manager</image:title>
+      <image:title>Shubham Neupane — Full-Stack Engineer &amp; Founder, Aurora Studios</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://shubhamneupane07.com.np/work/vitra-bahira-erp</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shubhamneupane07.com.np/work/gmc-job-portal</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shubhamneupane07.com.np/img/work/gmc.png</image:loc>
+      <image:title>GMC Job Portal</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://shubhamneupane07.com.np/work/board-games-nepal</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shubhamneupane07.com.np/img/work/bgn.png</image:loc>
+      <image:title>Board Game Nepal</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://shubhamneupane07.com.np/work/sahara-ghar</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shubhamneupane07.com.np/img/work/sahara.png</image:loc>
+      <image:title>Sahara Ghar</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://shubhamneupane07.com.np/work/masto-coffee</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shubhamneupane07.com.np/img/work/masto.png</image:loc>
+      <image:title>Masto Coffee</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://shubhamneupane07.com.np/work/aurora-os</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

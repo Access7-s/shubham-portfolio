@@ -1,11 +1,11 @@
 {
-  "name": "Shubham Neupane — Technical Product Manager",
+  "name": "Shubham Neupane — Full-Stack Engineer",
   "short_name": "Shubham Neupane",
-  "description": "Technical Product Manager, Product Owner and Co-Founder of Aurora Studios in Kathmandu, Nepal.",
+  "description": "Full-stack engineer and founder of Aurora Studios in Kathmandu, Nepal.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0c0b09",
-  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a2b",
   "icons": [
     { "src": "/img/favicon.png", "sizes": "128x128", "type": "image/png", "purpose": "any" }
   ]

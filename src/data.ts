@@ -1,284 +1,447 @@
-import {
-  Github,
-  Linkedin,
-  Instagram,
-  Facebook,
-  Mail,
-  Phone,
-  Flame,
-  Twitter,
-} from "lucide-react";
+/* ============================================================
+   CONTENT
+   Sourced from `uploads/portfolio-design-brief.md` plus the
+   `Portfolio v8 White` and `Case Study` design files.
+   Every claim here is one Shubham can defend in an interview.
+   ============================================================ */
 
 export const profile = {
   name: "Shubham Neupane",
-  headline: ["Technical Product Manager", "Product Owner", "Project Manager"],
-  location: "Kathmandu, Nepal",
+  role: "Founder & Full-Stack Engineer",
+  studio: "Aurora Studios",
+  location: "Kathmandu, NP",
   coords: "27.7172° N, 85.3240° E",
   email: "shubhamneupane07@gmail.com",
   phone: "+977 9868767171",
+  phoneHref: "tel:+9779868767171",
   photo: "/img/shubham.png",
-  connections: "500+",
-  followers: "1,662",
-  studio: "Aurora Studios",
-  lede: "Technical Product Manager and co-founder of Aurora Studios, with a software-development foundation and an AI/ML specialization. I've shipped 4+ production apps for 1000+ users while leading cross-functional teams of 30–60.",
-  about: [
-    "I sit where engineering meets the business. With a Computer Science (AI) background and hands-on technical grounding in distributed systems, OOP and cloud architecture, I can go deep with engineers on API design and infrastructure — then zoom out to own strategy, backlog and roadmap.",
-    "I've defined product strategy for a college platform serving 500+ students, led a 30-person team to ship an EdTech product across web and mobile, and cut a deployment cycle by 35% by tightening how the team runs Scrum. I translate messy requirements into things people actually use.",
-  ],
+
+  /* Hero — deliberately short; the design caps the line box at 20ch. */
+  statement:
+    "Full-stack engineer and product owner. I build web apps for businesses in Nepal.",
+
+  bio: "Full-stack engineer and founder of Aurora Studios in Kathmandu. I build production web apps end to end, from React front ends and edge APIs to databases, auth and deployment. Before that I was a Product Owner and Project Manager, so I scope and spec work as comfortably as I write the code.",
+
+  quote: "Grow where others can’t.",
 };
 
 export const socials = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/shubham-neupane-9a937b217/", icon: Linkedin },
-  { label: "GitHub", href: "https://github.com/Access7-s", icon: Github },
-  { label: "X", href: "https://x.com/Access_7s", icon: Twitter },
-  { label: "Instagram", href: "https://www.instagram.com/_shubhamneupane_/", icon: Instagram },
-  { label: "Facebook", href: "https://www.facebook.com/shubham.neupane.3979/", icon: Facebook },
-  { label: "Tinder", href: "https://tinder.com/@shubhamneupane", icon: Flame },
-  { label: "Phone", href: "tel:+9779868767171", icon: Phone },
-  { label: "Email", href: "mailto:shubhamneupane07@gmail.com", icon: Mail },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shubham-neupane-9a937b217/" },
+  { label: "GitHub", href: "https://github.com/Access7-s" },
+  { label: "X", href: "https://x.com/Access_7s" },
+  { label: "Instagram", href: "https://www.instagram.com/_shubhamneupane_/" },
 ];
 
-export const stats = [
-  { value: "4+", label: "Production apps shipped" },
-  { value: "1000+", label: "Users served" },
-  { value: "60", label: "Largest team led" },
-  { value: "85%", label: "User satisfaction reached" },
-];
+/* ------------------------------------------------------------
+   PROJECTS — strongest first. Drives the hero fan, the ticker,
+   the Selected works grid and the six case-study pages.
+   ------------------------------------------------------------ */
 
-export const capabilities = [
-  {
-    no: "01",
-    title: "Product Ownership",
-    body: "Owning strategy, backlog and roadmap. Turning market and customer requirements into prioritized, buildable work — measured against adoption, retention and OKRs.",
-    tags: ["Roadmapping", "Requirement Analysis", "Prioritization", "OKRs"],
-  },
-  {
-    no: "02",
-    title: "Project Management",
-    body: "Running Scrum end to end — sprint planning, standups, retrospectives — for cross-functional teams of 30–60. Writing the SRS and keeping engineering and business aligned.",
-    tags: ["Scrum", "Agile", "Jira", "SRS & Docs"],
-  },
-  {
-    no: "03",
-    title: "Technical Foundation",
-    body: "A real software-development base: distributed systems, OOP and cloud architecture. Enough to guide decisions on API design, database schemas, Docker and CI/CD.",
-    tags: ["Distributed Systems", "OOP", "Cloud", "Docker", "CI/CD"],
-  },
-  {
-    no: "04",
-    title: "AI / ML",
-    body: "A Computer Science (AI) specialization — the lens I bring to product, and the direction I'm building toward.",
-    tags: ["Machine Learning", "Research", "Problem Solving"],
-  },
-];
+export type Fact = { k: string; v: string };
 
 export type Project = {
-  index: string;
-  title: string;
-  role: string;
-  year: string;
-  description: string;
-  tags: string[];
-  href?: string;
+  slug: string;
+  name: string;
+  /** Short label under the cards and beside the fan counter. */
+  kind: string;
+  /** Longer descriptor for the case-study header. */
+  caseKind: string;
+  /** One-word imperative that opens the case study. */
+  verb: string;
+  /** Handwritten aside in the case-study overview. */
+  note: string;
+  status: string;
+  client: string;
+  summary: string;
+  facts: Fact[];
+  bg: string;
+  ink: string;
+  img?: string;
+  live?: string;
+  liveLabel?: string;
+  /** Long-form case study on the Aurora Studios Behance. */
+  behance?: string;
 };
 
 export const projects: Project[] = [
   {
-    index: "01",
-    title: "Vitra Bahira ERP",
-    role: "Co-Founder & Product Lead",
-    year: "2026",
-    description:
-      "An all-in-one finance + inventory SaaS for Nepali small businesses — retail, wholesale and small factories. Real double-entry accounting under the hood, plus khata (credit), stock, Nepal-native VAT and the Bikram Sambat calendar. Piloted on three real businesses from day one.",
-    tags: ["React", "Hono", "Double-Entry", "Cloudflare"],
+    slug: "vitra-bahira-erp",
+    name: "Vitra Bahira ERP",
+    kind: "SaaS · piloting with 3 businesses",
+    caseKind: "Finance & inventory SaaS",
+    verb: "Balance",
+    note: "1,000+ tests, all green",
+    status: "Piloting with 3 businesses",
+    client: "Nepali SMBs",
+    summary:
+      "Finance and inventory SaaS for Nepali SMBs, piloting with 3 businesses. Covers billing, stock, khata (credit), real double-entry accounting, Nepal VAT and the Bikram Sambat calendar. Installable PWA with offline point-of-sale. Money is stored as integer paisa. 1,000+ tests.",
+    facts: [
+      { k: "modules", v: "Billing, stock, khata (credit), double-entry accounting" },
+      { k: "nepal", v: "Nepal VAT and the Bikram Sambat calendar" },
+      { k: "offline", v: "Installable PWA with offline point-of-sale" },
+      { k: "money", v: "Stored as integer paisa" },
+      { k: "quality", v: "1,000+ automated tests" },
+    ],
+    bg: "#1E3A2B",
+    ink: "#FFFFFF",
+    img: "/img/work/vitra.png",
+    live: "https://vitrabahira.com",
+    liveLabel: "vitrabahira.com",
   },
   {
-    index: "02",
-    title: "GMC Job Portal",
-    role: "Product & Engineering",
-    year: "2026",
-    description:
-      "A verified student ↔ employer hiring platform for Ghodaghodi Multiple Campus — document verification, applications and admin review. Built as Next.js 16 on Cloudflare Workers via Aurora IDP, with Better Auth and Drizzle.",
-    tags: ["Next.js 16", "Cloudflare", "D1", "Better Auth"],
+    slug: "gmc-job-portal",
+    name: "GMC Job Portal",
+    kind: "Platform · live, used daily",
+    caseKind: "Job platform",
+    verb: "Match",
+    note: "used every day on campus",
+    status: "Live, used daily",
+    client: "Ghodaghodi Multiple Campus",
+    summary:
+      "A verified bridge between the students of Ghodaghodi Multiple Campus and the businesses hiring around them, across Kailali and Sudurpaschim. Built in six weeks, launched in 2026 and now run by the campus itself.",
+    facts: [
+      { k: "trust", v: "Manual ID verification — an admin checks every college ID by hand" },
+      { k: "languages", v: "Written in Nepali and English, dated in Bikram Sambat" },
+      { k: "cost", v: "Free for students, no fees for employers" },
+      { k: "build", v: "Six weeks, 61% of the cost carried as a community initiative" },
+      { k: "launch", v: "Presented at the public launch event" },
+    ],
+    bg: "#DCE6F0",
+    ink: "#1E3A2B",
+    img: "/img/work/gmc.png",
+    live: "https://jobs.ghodaghodicampus.edu.np",
+    liveLabel: "jobs.ghodaghodicampus.edu.np",
+    behance: "https://www.behance.net/gallery/255240767/GMC-Job-Portal",
   },
   {
-    index: "03",
-    title: "Masto Coffee",
-    role: "Product & Engineering",
-    year: "2026",
-    description:
-      "Storefront and admin CMS for the Masto Artisan Roastery, migrated from a Supabase app to Cloudflare Workers. A React / Vite / shadcn UI served as static assets, with a Worker API backed by D1 and R2.",
-    tags: ["React", "Cloudflare Workers", "D1", "R2"],
+    slug: "board-games-nepal",
+    name: "Board Games Nepal",
+    kind: "Commerce · zero-JS storefront",
+    caseKind: "Storefront & back office",
+    verb: "Play",
+    note: "0 kb of client-side JS",
+    status: "Live",
+    client: "Board Game Nepal",
+    summary:
+      "Brand, website and shop for Board Game Nepal, started by two brothers who wanted more people to play with. Designed and built in one month. The storefront runs zero client-side JavaScript; the back office handles multi-currency landed-cost procurement (USD/EUR/CNY → NPR).",
+    facts: [
+      { k: "storefront", v: "Zero client-side JavaScript" },
+      { k: "back office", v: "Multi-currency landed-cost procurement" },
+      { k: "currencies", v: "USD / EUR / CNY → NPR" },
+      { k: "sector", v: "Retail & community" },
+      { k: "timeline", v: "One month, brand through to shop" },
+    ],
+    bg: "#EFD97A",
+    ink: "#1E3A2B",
+    img: "/img/work/bgn.png",
+    live: "https://boardgamenepal.com",
+    liveLabel: "boardgamenepal.com",
+    behance: "https://www.behance.net/gallery/256387979/Board-Game-Nepal-Brand-Website-Shop",
   },
   {
-    index: "04",
-    title: "Aurora IDP",
-    role: "Product Advisor",
-    year: "2026",
-    description:
-      "Aurora Studios' internal developer platform — one command ships a project to Cloudflare Workers with a D1 database, R2 bucket, Better Auth and rate limiting bound. Here I advised on direction rather than building it hands-on: which features to prioritize and what the deploy experience should feel like.",
-    tags: ["Advisory", "Feature Strategy", "Platform / DX", "Cloudflare"],
+    slug: "sahara-ghar",
+    name: "Sahara Ghar",
+    kind: "Non-profit · Kailali",
+    caseKind: "Website & admin",
+    verb: "Shelter",
+    note: "for a care home in Kailali",
+    status: "Live",
+    client: "Helping Hands Nepal",
+    summary:
+      "A website for the people no one counted. Sahara Ghar shelters around 100 abandoned and forgotten people in Kailali, and its whole public record lived on a Facebook page. This gives the home its own address on the internet, somewhere to document its story and an easier way for people to give.",
+    facts: [
+      { k: "scope", v: "Research, design, build" },
+      { k: "intake", v: "Volunteer and event intake" },
+      { k: "stories", v: "Block-based story editor" },
+      { k: "admin", v: "Admin for the shelter team" },
+      { k: "reach", v: "~100 residents, a decade of work, one public record" },
+    ],
+    bg: "#F7EFC4",
+    ink: "#1E3A2B",
+    img: "/img/work/sahara.png",
+    live: "https://saharaghar.org",
+    liveLabel: "saharaghar.org",
+    behance: "https://www.behance.net/gallery/255129331/Sahara-Ghar-Official-Website",
   },
   {
-    index: "05",
-    title: "Codynn Compiler",
-    role: "Project Manager @ Void Nepal",
-    year: "2023–24",
-    description:
-      "A cloud-based online compiler supporting 5+ programming languages. Gathered requirements and researched market need, then worked with backend engineers on a Docker containerization strategy for secure code execution and a CI/CD pipeline for deploys.",
-    tags: ["Cloud Compiler", "Docker", "5+ Languages", "CI/CD"],
+    slug: "masto-coffee",
+    name: "Masto Coffee",
+    kind: "Migration · Supabase → Workers",
+    caseKind: "Platform migration",
+    verb: "Brew",
+    note: "moved to the edge",
+    status: "Live",
+    client: "Coffee roastery",
+    summary:
+      "Moved a roastery’s online store from Supabase to Cloudflare Workers.",
+    facts: [
+      { k: "from", v: "Supabase" },
+      { k: "to", v: "Cloudflare Workers" },
+    ],
+    bg: "#3B2A1E",
+    ink: "#FFFFFF",
+    img: "/img/work/masto.png",
   },
   {
-    index: "06",
-    title: "Intra College Calendar",
-    role: "Product Owner & Research Head",
-    year: "2023",
-    description:
-      "An internal calendar and events system built for Herald College under the Development Platform. Acted as Product Owner and Research Head — scoping requirements and building the system with a tight closed team of five.",
-    tags: ["Product Ownership", "Research", "Team of 5"],
+    slug: "aurora-os",
+    name: "Aurora OS",
+    kind: "Internal · studio operations",
+    caseKind: "Internal operations app",
+    verb: "Run",
+    note: "the studio runs on it",
+    status: "In daily use",
+    client: "Aurora Studios",
+    summary:
+      "The studio’s internal operations app: CRM, projects, deliverables, staff and finance.",
+    facts: [
+      { k: "modules", v: "CRM, projects, deliverables, staff and finance" },
+      { k: "user", v: "Aurora Studios" },
+    ],
+    bg: "#DDE8D9",
+    ink: "#1E3A2B",
   },
 ];
 
-export type TimelineItem = {
-  period: string;
-  org: string;
-  role: string;
-  place: string;
-  short: string;
-  tags: string[];
+/* ------------------------------------------------------------
+   HOW I WORK — four sticky cards that stack up as you scroll.
+   ------------------------------------------------------------ */
+
+export const steps = [
+  {
+    n: "01 / spec",
+    t: "Spec it",
+    d: "I sit with the client, work out what we are building and who it is for, and write it down, down to an SRS when the project needs one.",
+    proof: "2 years as product owner & project manager",
+    bg: "#DDE8D9",
+    ink: "#1E3A2B",
+    top: "90px",
+  },
+  {
+    n: "02 / build",
+    t: "Build it",
+    d: "React front ends, edge APIs, databases and auth, built by the same person who wrote the spec.",
+    proof: "React 19 · Hono · Postgres · Better Auth",
+    bg: "#FFFFFF",
+    ink: "#1E3A2B",
+    top: "110px",
+  },
+  {
+    n: "03 / test",
+    t: "Test it",
+    d: "Money stored as integer paisa, double-entry that balances, and tests that prove it.",
+    proof: "1,000+ automated tests on Vitra Bahira ERP",
+    bg: "#EFD97A",
+    ink: "#1E3A2B",
+    top: "130px",
+  },
+  {
+    n: "04 / ship",
+    t: "Ship it",
+    d: "Deployed on Cloudflare with CI/CD, so the thing is live and in real people’s hands.",
+    proof: "6 systems live in 2026",
+    bg: "#1E3A2B",
+    ink: "#EFD97A",
+    top: "150px",
+  },
+];
+
+/* ------------------------------------------------------------
+   STATEMENT — stickers that pop along the mouse trail.
+   ------------------------------------------------------------ */
+
+export type Sticker = {
+  img?: string;
+  w?: number;
+  h?: number;
+  t?: string;
+  bg?: string;
+  ink?: string;
 };
 
-export const experience: TimelineItem[] = [
+export const stickers: Sticker[] = [
+  { img: "/img/work/gmc.png", w: 200, h: 136 },
+  { t: "Bikram Sambat", bg: "#EFD97A" },
+  { t: "Nepal VAT", bg: "#DDE8D9" },
+  { img: "/img/shubham.png", w: 140, h: 176 },
+  { t: "1,000+ tests", bg: "#EFD97A" },
+  { t: "0 kb JS", bg: "#1E3A2B", ink: "#EFD97A" },
+  { img: "/img/work/masto.png", w: 200, h: 136 },
+  { t: "khata", bg: "#F7EFC4" },
+  { t: "offline POS", bg: "#FFFFFF", ink: "#1E3A2B" },
+];
+
+/* ------------------------------------------------------------
+   THE WALL — a slow rotating ring, then a masonry of figures.
+   ------------------------------------------------------------ */
+
+export type RingItem = {
+  img?: string;
+  a?: string;
+  b?: string;
+  bg?: string;
+  ink?: string;
+};
+
+export const ring: RingItem[] = [
+  { a: "6", b: "systems live in 2026", bg: "#EFD97A" },
+  { img: "/img/work/gmc.png" },
+  { a: "3", b: "businesses piloting the ERP", bg: "#1E3A2B", ink: "#FFFFFF" },
+  { a: "1,000+", b: "automated tests", bg: "#F7EFC4" },
+  { img: "/img/shubham.png" },
+  { a: "500+", b: "students on a platform I product-owned", bg: "#DCE6F0" },
+  { a: "30", b: "people on the largest team I led", bg: "#EFD97A" },
+  { img: "/img/work/masto.png" },
+  { a: "−35%", b: "deployment cycle time", bg: "#2F5A3F", ink: "#FFFFFF" },
+  { a: "1st", b: "Class Honours, BSc CS (AI)", bg: "#FFFFFF" },
+];
+
+export type WallItem = {
+  img?: string;
+  big?: string;
+  small?: string;
+  hand?: string;
+  bg: string;
+  ink: string;
+  ar: string;
+  pos?: string;
+  cap: string;
+};
+
+export const wall: WallItem[] = [
   {
-    period: "Jun 2026 — Present",
-    org: "Aurora Studios",
-    role: "Co-Founder",
-    place: "Product Studio",
-    short: "Co-founded a studio shipping software for small businesses and communities on the Cloudflare edge.",
-    tags: ["Product Direction", "Full-Stack", "Cloudflare"],
+    img: "/img/shubham.png",
+    bg: "#FFFFFF",
+    ink: "#1E3A2B",
+    ar: "3/4",
+    cap: "fig. 01 — me, Kathmandu, at night",
   },
   {
-    period: "Apr 2023 — Oct 2024",
-    org: "Development Platform, HCK",
-    role: "Product Owner",
-    place: "Internship",
-    short: "Owned strategy & backlog for a college platform, prioritizing against quarterly OKRs.",
-    tags: ["500+ users", "85% CSAT", "15+ engineers", "OKRs"],
+    big: "6",
+    small: "systems live in 2026",
+    bg: "#EFD97A",
+    ink: "#1E3A2B",
+    ar: "1/1",
+    cap: "fig. 02 — Aurora Studios",
   },
   {
-    period: "Jun 2023 — Jan 2024",
-    org: "Void Nepal (Codynn)",
-    role: "Project Manager",
-    place: "Internship",
-    short: "Led a cross-functional team to ship Codynn web + mobile and an online compiler.",
-    tags: ["Team of 30", "−35% cycle", "20→32 velocity", "Docker"],
+    img: "/img/work/gmc.png",
+    bg: "#FFFFFF",
+    ink: "#1E3A2B",
+    ar: "4/3",
+    pos: "top",
+    cap: "fig. 03 — GMC Job Portal, used daily",
   },
   {
-    period: "Ongoing",
-    org: "IoT Innovators",
-    role: "Steering Leader",
-    place: "Volunteer",
-    short: "Steering a student tech community — events, docs and a 1200+ member Discord.",
-    tags: ["Community", "Events", "1200+ Discord"],
+    hand: "spec first, code second",
+    bg: "#FFFFFF",
+    ink: "#2F5A3F",
+    ar: "1/1",
+    cap: "fig. 04 — product owner habit",
+  },
+  {
+    big: "1,000+",
+    small: "automated tests on Vitra Bahira ERP",
+    bg: "#1E3A2B",
+    ink: "#FFFFFF",
+    ar: "4/5",
+    cap: "fig. 05 — tests",
+  },
+  {
+    big: "500+",
+    small: "students on a platform I product-owned at HCK",
+    bg: "#DCE6F0",
+    ink: "#1E3A2B",
+    ar: "1/1",
+    cap: "fig. 06 — 2023–24",
+  },
+  {
+    img: "/img/work/masto.png",
+    bg: "#FFFFFF",
+    ink: "#1E3A2B",
+    ar: "4/3",
+    pos: "top",
+    cap: "fig. 07 — Masto Coffee on Workers",
+  },
+  {
+    big: "−35%",
+    small: "deployment cycle time after introducing Scrum at Void Nepal",
+    bg: "#2F5A3F",
+    ink: "#FFFFFF",
+    ar: "4/5",
+    cap: "fig. 08 — process",
+  },
+  {
+    big: "30",
+    small: "people on the largest team I led (Codynn)",
+    bg: "#EFD97A",
+    ink: "#1E3A2B",
+    ar: "1/1",
+    cap: "fig. 09 — team",
+  },
+  {
+    hand: "नमस्कार from Kathmandu :)",
+    bg: "#1E3A2B",
+    ink: "#EFD97A",
+    ar: "4/3",
+    cap: "fig. 10 — hello",
+  },
+  {
+    big: "1st",
+    small: "Class Honours, BSc (Hons) CS (AI), Wolverhampton",
+    bg: "#FFFFFF",
+    ink: "#1E3A2B",
+    ar: "1/1",
+    cap: "fig. 11 — 2023–25",
+  },
+  {
+    big: "1,200+",
+    small: "members in the Codynn & Sekuwa Discords I admin",
+    bg: "#F7EFC4",
+    ink: "#1E3A2B",
+    ar: "4/5",
+    cap: "fig. 12 — community",
   },
 ];
 
-export const education = [
+/* ------------------------------------------------------------
+   ABOUT
+   ------------------------------------------------------------ */
+
+export const timeline = [
   {
-    period: "2023 — 2025",
-    org: "University of Wolverhampton",
-    detail: "Bachelor (Hons) Computer Science (AI) · First Class Honors",
-    note: "Distributed Systems & Cloud Computing · OOP · Collaborative Development",
+    when: "2026 – now",
+    role: "Founder & Full-Stack Engineer, Aurora Studios",
+    note: "Production web apps for businesses and communities in Nepal.",
   },
   {
-    period: "2020 — 2022",
-    org: "Prasadi Academy",
-    detail: "Higher Secondary Education",
-    note: "",
+    when: "Apr 23 – Oct 24",
+    role: "Product Owner (intern), Development Platform HCK",
+    note: "College system for 500+ students, 85% satisfaction, 15-person engineering team.",
+  },
+  {
+    when: "Jun 23 – Jan 24",
+    role: "Project Manager (intern), Void Nepal / Codynn",
+    note: "Team of 30, 20+ features across 8 sprints, deployment cycle cut 35%.",
+  },
+  {
+    when: "Ongoing",
+    role: "Steering Leader, IoT Innovators",
+    note: "Discord admin for Codynn and Sekuwa (1,200+ members).",
+  },
+  {
+    when: "2023 – 2025",
+    role: "BSc (Hons) CS (AI), University of Wolverhampton",
+    note: "First Class Honours.",
   },
 ];
 
 export const skills = [
-  "Scrum",
-  "Agile",
-  "Jira",
-  "Roadmapping",
-  "Requirement Analysis",
-  "Competitive Research",
-  "Stakeholder Communication",
-  "Project Planning",
-  "Documentation",
-  "Leadership",
-  "Collaboration",
-  "Problem-Solving",
-  "Distributed Systems",
-  "OOP",
-  "Cloud Architecture",
-  "Docker",
-  "CI/CD",
-  "GitHub",
-  "AI / ML",
-];
-
-export type Milestone = {
-  year: string;
-  tag?: string;
-  title: string;
-  sub: string;
-  img?: string; // photo card
-  stat?: string; // stat card (when no photo)
-  statLabel?: string;
-};
-
-// Chronological journey. `img` nodes are photo cards; `stat` nodes render a
-// bold value instead. Drop real photos into /public/img/timeline and swap a
-// stat node for `img: "/img/timeline/<file>"` to enrich it.
-export const milestones: Milestone[] = [
+  { group: "Frontend", items: "React 19, Next.js App Router, Vite, TanStack, Tailwind, PWA" },
+  { group: "Backend", items: "Node, Hono, Better Auth (passkeys, roles), Zod, Drizzle" },
+  { group: "Data", items: "Postgres (Neon), SQLite (D1), double-entry and inventory modelling" },
   {
-    year: "2020",
-    title: "Prasadi Academy",
-    sub: "Higher Secondary · Physical Science",
-    stat: "A+",
-    statLabel: "Grade",
+    group: "Edge / DevOps",
+    items: "Cloudflare Workers, D1, R2, Hyperdrive, OpenNext, Docker, CI/CD, CSP",
   },
-  {
-    year: "2023",
-    title: "Univ. of Wolverhampton",
-    sub: "BSc (Hons) Computer Science (AI)",
-    stat: "1st",
-    statLabel: "Class Honors",
-  },
-  {
-    year: "2023",
-    title: "Product Owner & PM",
-    sub: "Herald · Void Nepal (Codynn)",
-    stat: "30–60",
-    statLabel: "Team led",
-  },
-  {
-    year: "2024",
-    title: "Codynn & Herald App",
-    sub: "Shipped — Play Store & web",
-    stat: "1000+",
-    statLabel: "Users served",
-  },
-  {
-    year: "2026",
-    tag: "Jun 8",
-    title: "Aurora Studios",
-    sub: "Co-founded a product studio",
-    img: "/img/shubham.png",
-  },
-  {
-    year: "2026",
-    title: "Masto Coffee",
-    sub: "Storefront + admin CMS, shipped",
-    img: "/img/work/masto.png",
-  },
-  {
-    year: "2026",
-    title: "GMC Job Portal",
-    sub: "Verified hiring platform, shipped",
-    img: "/img/work/gmc.png",
-  },
+  { group: "Product", items: "Scrum, Jira, SRS writing, roadmapping, stakeholder communication" },
 ];
