@@ -7,7 +7,7 @@
 
 export const profile = {
   name: "Shubham Neupane",
-  role: "Founder & Full-Stack Engineer",
+  role: "Co-Founder & Full-Stack Engineer",
   studio: "Aurora Studios",
   location: "Kathmandu, NP",
   coords: "27.7172° N, 85.3240° E",
@@ -20,7 +20,7 @@ export const profile = {
   statement:
     "Full-stack engineer and product owner. I build web apps for businesses in Nepal.",
 
-  bio: "Full-stack engineer and founder of Aurora Studios in Kathmandu. I build production web apps end to end, from React front ends and edge APIs to databases, auth and deployment. Before that I was a Product Owner and Project Manager, so I scope and spec work as comfortably as I write the code.",
+  bio: "Full-stack engineer and co-founder of Aurora Studios in Kathmandu. I build production web apps end to end, from React front ends and edge APIs to databases, auth and deployment. Before that I was a Product Owner and Project Manager, so I scope and spec work as comfortably as I write the code.",
 
   quote: "Grow where others can’t.",
 };
@@ -410,7 +410,7 @@ export const wall: WallItem[] = [
 export const timeline = [
   {
     when: "2026 – now",
-    role: "Founder & Full-Stack Engineer, Aurora Studios",
+    role: "Co-Founder & Full-Stack Engineer, Aurora Studios",
     note: "Production web apps for businesses and communities in Nepal.",
   },
   {

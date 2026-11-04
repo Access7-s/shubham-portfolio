@@ -1,6 +1,6 @@
 # Shubham Neupane — Portfolio
 
-Personal portfolio of **Shubham Neupane** — Full-Stack Engineer and founder of
+Personal portfolio of **Shubham Neupane** — Full-Stack Engineer and co-founder of
 Aurora Studios, from Kathmandu, Nepal.
 
 **Design direction:** "Paper Garden" — white paper, deep forest-green ink and a

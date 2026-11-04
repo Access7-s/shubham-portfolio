@@ -67,7 +67,7 @@ export default function Quote() {
               className="t-mono whitespace-nowrap"
               style={{ fontSize: 11, opacity: 0.6 }}
             >
-              Founder, {profile.studio}
+              Co-Founder, {profile.studio}
             </span>
           </span>
         </figcaption>

@@ -113,7 +113,7 @@ export default function Case({ project }: { project: Project }) {
           }}
         >
           {[
-            { k: "Role", v: "Founder & full-stack engineer" },
+            { k: "Role", v: "Co-founder & full-stack engineer" },
             { k: "Client", v: project.client },
             { k: "Status", v: project.status },
             { k: "Year", v: "2026" },

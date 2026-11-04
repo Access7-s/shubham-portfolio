@@ -7,7 +7,7 @@ import Case from "./pages/Case";
 import { projects } from "./data";
 
 const HOME_TITLE =
-  "Shubham Neupane — Full-Stack Engineer & Founder, Aurora Studios | Kathmandu, Nepal";
+  "Shubham Neupane — Full-Stack Engineer & Co-Founder, Aurora Studios | Kathmandu, Nepal";
 
 function Routes() {
   const { path } = useRouter();
