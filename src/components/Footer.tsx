@@ -26,16 +26,22 @@ export default function Footer() {
           <span style={{ fontSize: 18 }}>Have a project? Write to me.</span>
           <a
             href={`mailto:${profile.email}`}
-            className="flex flex-wrap text-butter hover:text-white"
+            className="block text-butter hover:text-white"
             style={{
               fontWeight: 500,
-              fontSize: "clamp(30px,5.6vw,100px)",
+              fontSize: "clamp(22px,5.6vw,100px)",
               lineHeight: 0.95,
               letterSpacing: "-.04em",
+              /* Long enough to overflow a narrow phone on its own, so it is
+                 allowed to break mid-word rather than push the page wide. */
+              overflowWrap: "anywhere",
+              wordBreak: "break-all",
+              minWidth: 0,
+              maxWidth: "100%",
             }}
           >
-            <span className="whitespace-nowrap">{user}</span>
-            <span className="whitespace-nowrap">@{domain}</span>
+            <span className="inline-block">{user}</span>
+            <span className="inline-block">@{domain}</span>
           </a>
         </div>
         <Blob width="clamp(70px,8vw,120px)" legStroke="#EFD97A" />

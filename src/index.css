@@ -118,8 +118,9 @@ button {
 
 /* ============================================================
    SITE HEADER
-   Three columns on desktop. Below ~680px the city/clock would push
-   the nav off-screen, so it steps aside and the links spread instead.
+   Three columns at every width. Below 720px — the breakpoint the design
+   file uses — the inline nav gives way to a Menu button and a drop-down
+   panel, and the city/clock stays put.
    ============================================================ */
 .site-header {
   display: grid;
@@ -146,17 +147,79 @@ button {
   gap: clamp(10px, 1.4vw, 26px);
 }
 
-@media (max-width: 680px) {
-  .site-header {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .site-header__meta,
-  .site-header__spacer {
+/* The Menu button only exists below the breakpoint; `display: none` keeps it
+   out of the grid entirely so the three columns stay as they are. */
+.site-header__menu {
+  display: none;
+  justify-self: end;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Drops out of the grid flow — the header is sticky, so it is the containing
+   block. 112% in the design is outside Bricolage's wdth axis, so: 100%. */
+.site-header__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px var(--gutter) 24px;
+  background: var(--color-paper);
+  border-bottom: 1.5px solid var(--color-ink);
+  font-stretch: 100%;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.site-header__panel a {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-sage);
+}
+
+.site-header__panel a:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 719px) {
+  .site-header__nav {
     display: none;
   }
-  .site-header__nav {
-    justify-content: space-between;
-    gap: 8px;
+  .site-header__menu {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ============================================================
+   THE WALL RING
+   The orbiting cards are sized off these so the mobile step the design
+   makes below 720px — smaller cards on a tighter orbit — stays in CSS.
+   Left at desktop sizes the cards pile onto the headline on a phone.
+   ============================================================ */
+.ring {
+  --ring-orbit: clamp(120px, 21vw, 300px);
+  --ring-card-w: clamp(100px, 11vw, 150px);
+  --ring-card-h: clamp(126px, 14vw, 190px);
+  --ring-pad: 14px;
+  --ring-value: clamp(22px, 2.5vw, 36px);
+  --ring-label: 13px;
+}
+
+@media (max-width: 719px) {
+  .ring {
+    --ring-orbit: 128px;
+    --ring-card-w: 74px;
+    --ring-card-h: 94px;
+    --ring-pad: 8px;
+    --ring-value: 18px;
+    --ring-label: 9px;
   }
 }
 

@@ -1,6 +1,6 @@
 import { ring, wall } from "../../data";
 
-const ORBIT = "clamp(120px,21vw,300px)";
+/* Sizes live in index.css (.ring) so the mobile step stays a media query. */
 const SPIN = "spin 70s linear infinite";
 
 export default function Wall() {
@@ -100,7 +100,7 @@ export default function Wall() {
 function Ring() {
   return (
     <div
-      className="relative flex items-center justify-center overflow-hidden bg-ink text-white"
+      className="ring relative flex items-center justify-center overflow-hidden bg-ink text-white"
       style={{ borderRadius: 28, minHeight: "clamp(620px,62vw,820px)" }}
     >
       <div
@@ -115,15 +115,15 @@ function Ring() {
               key={i}
               className="absolute left-0 top-0"
               style={{
-                transform: `rotate(${ang}deg) translateY(calc(-1 * ${ORBIT})) rotate(${-ang}deg)`,
+                transform: `rotate(${ang}deg) translateY(calc(-1 * var(--ring-orbit))) rotate(${-ang}deg)`,
               }}
             >
               <div style={{ width: 0, height: 0, animation: `${SPIN} reverse` }}>
                 <div
                   className="overflow-hidden"
                   style={{
-                    width: "clamp(100px,11vw,150px)",
-                    height: "clamp(126px,14vw,190px)",
+                    width: "var(--ring-card-w)",
+                    height: "var(--ring-card-h)",
                     transform: `translate(-50%,-50%) rotate(${(i % 2 ? 1 : -1) * 6}deg)`,
                     boxShadow: "0 16px 30px rgba(0,0,0,.35)",
                   }}
@@ -138,20 +138,20 @@ function Ring() {
                   ) : (
                     <div
                       className="flex h-full w-full flex-col justify-between"
-                      style={{ background: w.bg, color: w.ink ?? "#1E3A2B", padding: 14 }}
+                      style={{ background: w.bg, color: w.ink ?? "#1E3A2B", padding: "var(--ring-pad)" }}
                     >
                       <span
                         className="whitespace-nowrap"
                         style={{
                           fontWeight: 800,
-                          fontSize: "clamp(22px,2.5vw,36px)",
+                          fontSize: "var(--ring-value)",
                           letterSpacing: "-.05em",
                           lineHeight: 0.9,
                         }}
                       >
                         {w.a}
                       </span>
-                      <span style={{ fontSize: 13, lineHeight: 1.3 }}>{w.b}</span>
+                      <span style={{ fontSize: "var(--ring-label)", lineHeight: 1.3 }}>{w.b}</span>
                     </div>
                   )}
                 </div>
